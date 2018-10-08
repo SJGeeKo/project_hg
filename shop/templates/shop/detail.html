@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load humanize %}
+{% block content %}
+    <div class="container">
+        <div class="row my_breadcrumb">
+            <p><a href="{% url 'shop:allPaintings' %}">모든 그림</a> / <a href="#">{{painting.painter}}</a> / {{painting.name}}</p>
+        </div>
+        <div class="row">
+            {% if painting %}
+            <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+                <div class="image_container text-center">
+                    <img class="detailImg" src="{{painting.image.url}}" alt="{{painting.slug}}">
+                </div>
+                <br>
+                <br>
+                <h1 class="painting_detail_title">할머니의 그림설명</h1>
+                <p>{{painting.description}}</p>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+                <h1 class="painting_detail_title">{{painting.name}}</h1>
+                <ul class="list_painting_detail">
+                    <li>{{painting.painter}} 할머니 그림</li>
+                    <li>크기: {{painting.width}} x {{painting.height}} cm</li>
+                    <li>가격: ₩ {{painting.price|intcomma}}</li>
+                </ul>
+            </div>
+        <div class="row">
+            <div class="col-12">
+
+            </div>
+        </div>
+            {% else %}
+
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

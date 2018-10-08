@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load humanize %}
+{% load crispy_forms_tags %}
+{% load mathfilters %}
+{% block content %}
+<div>
+    <p class="text-center"><b>"{{query}}"</b>에 대한 검색결과</p>
+</div>
+<div class="container">
+    <div class="grid are-images-unloaded">
+        <div class="grid__col-sizer"></div>
+        <div class="grid__gutter-sizer"></div>
+        {% for painting in paintings.object_list %}
+        {% with width=painting.image.width height=painting.image.height %}
+        <div class="grid__item{% if width|div:height >= 1.5 %} grid__item--width2{% endif %}" data-toggle="modal" data-target="#{{painting.slug}}">
+            <img src="{{painting.image.url}}">
+            <h5>{{painting.name}}</h5>
+            <p class="item-description">{{painting.description|truncatechars:100}}</p>
+            
+            <!-- Modal for painting details -->
+            <div class="modal fade" id="{{painting.slug}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">{{painting.name}}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row">
+                                    <img src="{{painting.image.url}}" class="detailImg">
+                                </div>
+                                <hr>
+                                <p>{{painting.description}}</p>
+                                <p>{{painting.width}} x {{painting.height}} cm</p>
+                                <p>₩ {{painting.price|intcomma}}</p>
+                                <p>{{painting.painter}}</p>
+                                <hr>
+                                <h5>더 자세한 정보 받아보기</h5>
+                                <p><strong>'{{painting.name}}'</strong> 작품에 대해 더욱 자세한 정보를 알고 싶으신가요?<br>아래 입력창에 이메일
+                                    주소를
+                                    입력해주세요. <strong>자세한 작품 해설</strong>, <strong>구매방법</strong> 등이 포함된 메일을 발송해드립니다.</p>
+                                <form action="{% url 'mail:send_brochure' painting.id %}" method="POST">
+                                    <div class="form-row">
+                                        <div class="form-group col-9">
+                                            {% csrf_token %}
+                                            {{brochure_form|crispy}}
+                                        </div>
+                                        <div class="form-group col-3">
+                                            <button type="submit" class="btn btn-primary">받아보기</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endwith %}
+        {% endfor %}
+    </div>
+</div>
+<br>
+</div>
+{% endblock %}
+{% block js %}
+<script>
+    //-------------------------------------//
+    // init Masonry
+
+    var $grid = $('.grid').masonry({
+        itemSelector: 'none', // select none at first
+        columnWidth: '.grid__col-sizer',
+        gutter: '.grid__gutter-sizer',
+        percentPosition: true,
+        stagger: 30,
+        // nicer reveal transition
+        visibleStyle: { transform: 'translateY(0)', opacity: 1 },
+        hiddenStyle: { transform: 'translateY(100px)', opacity: 0 },
+    });
+
+    // get Masonry instance
+    var msnry = $grid.data('masonry');
+
+    // initial items reveal
+    $grid.imagesLoaded(function () {
+        $grid.removeClass('are-images-unloaded');
+        $grid.masonry('option', { itemSelector: '.grid__item' });
+        var $items = $grid.find('.grid__item');
+        $grid.masonry('appended', $items);
+    });
+
+    //-------------------------------------//
+    // hack CodePen to load pens as pages
+    function getPageNumbers(num) {
+        var pageNumbers = []
+        for(i=1; i<num; i++) {
+            pageNumbers.push(i+1)
+        }
+        return pageNumbers
+    }
+
+    var nextPageNumbers = getPageNumbers(parseInt('{{paintings.paginator.num_pages}}'))
+
+    function getPaintingsPath() {
+        var pageIndex = nextPageNumbers[this.loadCount];
+        if (pageIndex) {
+            return 'http://127.0.0.1:8000/search/?csrfmiddlewaretoken={{csrfToken}}&q={{query}}&page='+pageIndex;
+        }
+    }
+
+    //-------------------------------------//
+    // init Infinte Scroll
+
+    $grid.infiniteScroll({
+        path: getPaintingsPath,
+        append: '.grid__item',
+        outlayer: msnry,
+        status: '.page-load-status',
+    });
+</script>
+{% endblock %}
