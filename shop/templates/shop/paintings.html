@@ -13,7 +13,6 @@
         <div class="grid__item{% if width|div:height >= 1.5 %} grid__item--width2{% endif %}" data-toggle="modal" data-target="#{{painting.slug}}">
             <img src="{{painting.image.url}}">
             <h5>{{painting.name}}</h5>
-            <p class="item-description">{{painting.description|truncatechars:100}}</p>
             <!-- Modal for painting details -->
             <div class="modal fade" id="{{painting.slug}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
                 aria-hidden="true">

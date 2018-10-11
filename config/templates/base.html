@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/slick-theme.css' %}">
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
@@ -18,11 +20,12 @@
         {% endblock %}
     </div>
         {% include "footer.html" %}
-    <script src="{% static 'assets/js/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'assets/js/popper.min.js' %}"></script>
     <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'assets/js/infinite-scroll.pkgd.min.js' %}"></script>
     <script src="{% static 'assets/js/masonry.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/js/slick.min.js' %}"></script>
     {% block js %}
     {% endblock %}
 </body>
