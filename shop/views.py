@@ -7,7 +7,6 @@ from django.core.paginator import Paginator, EmptyPage, InvalidPage
 def allPaintings(request):
     paintings_list = Painting.objects.all()
     form = ContactForm()
-    brochure_form = SendBrochureForm()
     '''
     Paginator
     '''
@@ -20,11 +19,12 @@ def allPaintings(request):
         paintings = paginator.page(page)
     except (EmptyPage, InvalidPage):
         paintings = paginator.page(paginator.num_pages)
-    return render(request, 'shop/paintings.html', {'form': form, 'brochure_form': brochure_form, 'paintings': paintings})
+    return render(request, 'shop/paintings.html', {'form': form, 'paintings': paintings})
 
 def paintingDetail(request, painting_slug):
+    brochure_form = SendBrochureForm()
     try:
         painting = Painting.objects.get(slug = painting_slug)
     except Exception as e:
         raise e
-    return render(request, 'shop/detail.html', {'painting': painting})
+    return render(request, 'shop/detail.html', {'painting': painting, 'brochure_form': brochure_form})

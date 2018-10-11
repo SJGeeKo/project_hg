@@ -77,16 +77,20 @@
     float: left;
 }
 
+.grid__item a {
+    text-decoration: none !important;
+    color: #222222;
+}
+
+.grid__item a:hover {
+    text-decoration: none !important;
+    color: #222222;
+}
+
 .grid__item img {
     display: block;
     width: 100%;
     border-radius: 10px;
-}
-
-.item-description {
-    font-size: 14px;
-    text-align: justify;
-    word-break: keep-all;
 }
 
 .page-load-status {
@@ -120,7 +124,16 @@ a.float:hover {
     margin-top: 18px;
 }
 
-/**** Detail ****/
+/**** Paintings Detail ****/
+.detailImg {
+    max-width: 100%;
+}
+
+.image_container {
+    background: #f8f9fa;
+}
+
+/**** Artist Detail ****/
 .slick-slider {
     position: relative;
     width: 100%;
