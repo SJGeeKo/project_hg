@@ -18,7 +18,7 @@ def searchResult(request):
     '''
     Paginator
     '''
-    paginator = Paginator(paintings_list, 10)
+    paginator = Paginator(paintings_list, 16)
     try:
         page = int(request.GET.get('page','1'))
     except:

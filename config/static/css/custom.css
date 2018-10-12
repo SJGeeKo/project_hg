@@ -1,6 +1,6 @@
 /**** Navbar ****/
 .navbar {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .btn-outline-success {
@@ -15,6 +15,10 @@
 
 .btn-outline-success:active {
     background: #222222 !important;
+}
+
+.my_toggler {
+    margin-left: 15px;
 }
 
 /**** Footer ****/
@@ -127,6 +131,7 @@ a.float:hover {
 /**** Paintings Detail ****/
 .detailImg {
     max-width: 100%;
+    max-height: 700px;
 }
 
 .image_container {

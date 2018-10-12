@@ -5,7 +5,9 @@
 {% block content %}
 <div class="container">
     <div class="row my_breadcrumb">
-        <p><a href="{% url 'shop:allPaintings' %}">모든 그림</a> / <a href="#">{{painting.painter}}</a> / {{painting.name}}</p>
+        <div class="container">
+            <p><a href="{% url 'shop:allPaintings' %}">모든 그림</a> / <a href="{% url 'artist:artistDetailView' painting.painter.slug %}">{{painting.painter}}</a> / {{painting.name}}</p>
+        </div>
     </div>
     <div class="row">
         {% if painting %}

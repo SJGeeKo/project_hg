@@ -67,9 +67,10 @@
     var nextPageNumbers = getPageNumbers(parseInt('{{paintings.paginator.num_pages}}'))
 
     function getPaintingsPath() {
+        var currentUrl = window.location.href
         var pageIndex = nextPageNumbers[this.loadCount];
         if (pageIndex) {
-            return 'http://127.0.0.1:8000/search/?csrfmiddlewaretoken={{csrfToken}}&q={{query}}&page='+pageIndex;
+            return currentUrl + '?csrfmiddlewaretoken={{csrfToken}}&q={{query}}&page=' + pageIndex;
         }
     }
 

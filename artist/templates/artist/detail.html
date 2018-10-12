@@ -1,33 +1,41 @@
 {% extends "base.html" %}
 {% load humanize %}
 {% block content %}
-<div class="slick-slider js-slick">
-    {% for painting in paintings %}
-    <div>
-        <img class="slick-img" src="{{painting.image.url}}" alt="{{painting.name}}">
-        <br>
+<div class="container">
+    <div class="row my_breadcrumb">
         <div class="container">
-            <h2>{{painting.name}}</h2>
-            <p>{{painting.description}}</p>
-            <p>₩{{painting.price|intcomma}}</p>
+            <p><a href="{% url 'shop:allPaintings' %}">모든 그림</a> / {{paintings.0.painter.name}}</p>
         </div>
     </div>
-    {% endfor %}
-</div>
-<br>
-{% with paintings.0.painter as artist %}
-<h2>{{artist.name}}</h2>
-<p>{{artist.birth}}</p>
-<p>{{artist.description}}</p>
-{% endwith %}
-{% endblock %}
-{% block js %}
-<script>
-    $(document).ready(function () {
-        $('.js-slick').slick({
-            adaptiveHeight: true,
-            dots: true,
+
+    <div class="slick-slider js-slick">
+        {% for painting in paintings %}
+        <div>
+            <img class="slick-img" src="{{painting.image.url}}" alt="{{painting.name}}">
+            <br>
+            <div class="container">
+                <h2>{{painting.name}}</h2>
+                <p>{{painting.description}}</p>
+                <p>₩{{painting.price|intcomma}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <br>
+    {% with paintings.0.painter as artist %}
+    <h2>{{artist.name}}</h2>
+    <p>{{artist.birth}}</p>
+    <p>{{artist.description}}</p>
+    {% endwith %}
+    {% endblock %}
+    {% block js %}
+    <script>
+        $(document).ready(function () {
+            $('.js-slick').slick({
+                adaptiveHeight: true,
+                dots: true,
+            });
         });
-    });
-</script>
+    </script>
+</div>
 {% endblock %}
