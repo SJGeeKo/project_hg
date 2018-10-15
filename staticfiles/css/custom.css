@@ -1,0 +1,263 @@
+/**** Navbar ****/
+.navbar {
+    margin-bottom: 20px;
+}
+
+.btn-outline-success {
+    color: #222222 !important;
+    border-color: #222222 !important;
+}
+
+.btn-outline-success:hover {
+    background: #222222 !important;
+    color: #fff !important;
+}
+
+.btn-outline-success:active {
+    background: #222222 !important;
+}
+
+.my_toggler {
+    margin-left: 15px;
+}
+
+/**** Footer ****/
+.footer {
+    margin-top: 10px;
+}
+
+.my_footer {
+    background: #f8f9fa;
+    height: 60px;
+}
+.my_footer p {
+    padding-top: 20px;
+    font-size: 14px;
+}
+
+/**** Breadcrumb ****/
+.my_breadcrumb {
+    font-size: 0.8rem;
+}
+
+.my_breadcrumb a {
+    text-decoration: none;
+    color: #868C93;
+}
+
+.my_breadcrumb a:hover {
+    text-decoration: none;
+    color: #868C93;
+}
+
+/**** Paintings ****/
+.background {
+    position: relative;
+}
+
+.grid {
+    max-width: 1080px;
+}
+
+/* reveal grid after images loaded */
+.grid.are-images-unloaded {
+    opacity: 0;
+}
+
+.grid__item,
+.grid__col-sizer {
+    width: 23.5%;
+}
+
+.grid__gutter-sizer { width: 2%; }
+
+/* hide by default */
+.grid.are-images-unloaded .image-grid__item {
+    opacity: 0;
+}
+
+.grid__item {
+    margin-bottom: 20px;
+    float: left;
+}
+
+.grid__item a {
+    text-decoration: none !important;
+    color: #222222;
+}
+
+.grid__item a:hover {
+    text-decoration: none !important;
+    color: #222222;
+}
+
+.grid__item img {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.page-load-status {
+    display: none; /* hidden by default */
+    padding-top: 20px;
+    border-top: 1px solid #DDD;
+    text-align: center;
+    color: #777;
+}
+
+/**** FAB ****/
+.float {
+	position:fixed;
+	width:300px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#1C5D99;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+
+a.float:hover {
+    text-decoration: none;
+    color: #ffffff
+}
+
+.my-float {
+    margin-top: 18px;
+}
+
+/**** Paintings Detail ****/
+.detailImg {
+    max-width: 100%;
+    max-height: 700px;
+}
+
+.image_container {
+    background: #f8f9fa;
+}
+
+/**** Artist Detail ****/
+.slick-slider {
+    position: relative;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+    background: #f8f9fa;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    -ms-touch-action: pan-y;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slick-list {
+    position: relative;
+
+    display: block;
+    overflow: hidden;
+
+    margin: 0;
+    padding: 0;
+}
+
+.slick-list:focus {
+    outline: none;
+}
+
+.slick-list.dragging {
+    cursor: pointer;
+    cursor: hand;
+}
+
+.slick-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-size: cover;
+    background-position: center center;
+    max-width: 100%;
+    min-height: 10em;
+    max-height: 600px;
+    will-change: transform;
+}
+
+/**** Media Query ****/
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+    .grid__item,
+    .grid__col-sizer {
+        width: 47%
+    }
+
+    .grid__item--width2 {
+        width: 100%;
+    }
+
+    .grid__gutter-sizer {
+        width: 6%;
+    }
+
+    .my_fab {
+        display: none;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) { 
+    .grid__item,
+    .grid__col-sizer {
+        width: 47%
+    }
+
+    .grid__item--width2 {
+        width: 100%;
+    }
+    
+    .grid__gutter-sizer {
+        width: 6%;
+    } 
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+    .grid__item,
+    .grid__col-sizer {
+        width: 32%
+    }
+
+    .grid__gutter-sizer {
+        width: 2%;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .grid__item,
+    .grid__col-sizer {
+        width: 32%
+    }
+
+    .grid__gutter-sizer {
+        width: 2%;
+    } 
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1024px) { 
+    .grid__item,
+    .grid__col-sizer {
+        width: 23.5%
+    }
+    
+    .grid__gutter-sizer {
+        width: 2%;
+    }
+}

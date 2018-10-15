@@ -13,7 +13,12 @@
         <div class="grid__item{% if width|div:height >= 1.5 %} grid__item--width2{% endif %}" data-toggle="modal" data-target="#{{painting.slug}}">
             <a href="{% url 'shop:paintingDetail' painting.slug %}">
                 <img src="{{painting.image.url}}">
-                <h5>{{painting.name}}</h5>
+                <div class="main-description">
+                    <h5>{{painting.name}}</h5>
+                    <p>{{painting.painter.name}}</p>
+                    <p>{{painting.material}}</p>
+                    <p>₩ {{painting.price|intcomma}}</p>
+                </div>
             </a>
         </div>
         {% endwith %}

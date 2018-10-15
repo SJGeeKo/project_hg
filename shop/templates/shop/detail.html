@@ -17,16 +17,27 @@
             </div>
             <br>
             <br>
-            <h1 class="painting_detail_title">할머니의 그림설명</h1>
+            <h1 class="painting_detail_title">작품 해설</h1>
             <p>{{painting.description}}</p>
         </div>
         <div class="col-12 col-sm-12 col-md-12 col-lg-4">
             <h1 class="painting_detail_title">{{painting.name}}</h1>
             <ul class="list_painting_detail">
-                <li>{{painting.painter}} 할머니 그림</li>
                 <li>크기: {{painting.width}} x {{painting.height}} cm</li>
+                <li>{{painting.material}}</li>
                 <li>가격: ₩ {{painting.price|intcomma}}</li>
             </ul>
+            <div class="col-12 namecard">
+                <a href="{% url 'artist:artistDetailView' painting.painter.slug %}">
+                    <div class="image-cropper">
+                        <img class="profile_img" src="{{painting.painter.image.url}}" alt="{{painting.painter.name}}">
+                    </div>
+                    <div>
+                        <p>{{painting.painter}} 작가</p>
+                        <p>{{painting.painter.description|truncatechars:35}}</p>
+                    </div>
+                </a>
+            </div>
             <hr>
             <h5>더 자세한 정보 받아보기</h5>
             <p><strong>'{{painting.name}}'</strong> 작품에 대해 더욱 자세한 정보를 알고 싶으신가요?<br>

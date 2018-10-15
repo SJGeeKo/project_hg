@@ -1,3 +1,8 @@
+/***** Base ****/
+.fixed_nav_pad {
+    padding-top: 115.25px;
+}
+
 /**** Navbar ****/
 .navbar {
     margin-bottom: 20px;
@@ -53,6 +58,11 @@
 /**** Paintings ****/
 .background {
     position: relative;
+}
+
+.main-description p {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
 }
 
 .grid {
@@ -138,55 +148,49 @@ a.float:hover {
     background: #f8f9fa;
 }
 
-/**** Artist Detail ****/
-.slick-slider {
-    position: relative;
-    width: 100%;
-    display: block;
-    box-sizing: border-box;
+.namecard {
     background: #f8f9fa;
-
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
-    -webkit-touch-callout: none;
-    -khtml-user-select: none;
-    -ms-touch-action: pan-y;
-    touch-action: pan-y;
-    -webkit-tap-highlight-color: transparent;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
 }
 
-.slick-list {
+.namecard a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.namecard a:hover {
+    text-decoration: none;
+    color: #222222;
+}
+
+.image-cropper {
+    float: left;
+    width: 65px;
+    height: 65px;
     position: relative;
-
-    display: block;
     overflow: hidden;
-
-    margin: 0;
-    padding: 0;
+    border-radius: 50%;
 }
 
-.slick-list:focus {
-    outline: none;
+.profile_img {
+    width: 100%;
 }
 
-.slick-list.dragging {
-    cursor: pointer;
-    cursor: hand;
+/**** Artist Detail ****/
+.namecard-lg {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
 }
 
-.slick-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    background-size: cover;
-    background-position: center center;
-    max-width: 100%;
-    min-height: 10em;
-    max-height: 600px;
-    will-change: transform;
+.image-cropper-lg {
+    width: 140px;
+    height: 140px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
 }
 
 /**** Media Query ****/
