@@ -149,11 +149,9 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Email Settings
-EMAIL_HOST = 'smtp.mailgun.org'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'postmaster@hagley.co.kr'
-EMAIL_HOST_PASSWORD = get_secret("EMAIL_HOST_PASSWORD")
-EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django_mailgun.MailgunBackend'
+MAILGUN_ACCESS_KEY = get_secret("MAILGUN_ACCESS_KEY")
+MAILGUN_SERVER_NAME = 'hagley.co.kr'
 
 # Crispy Form
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
