@@ -3,11 +3,6 @@
 {% load mathfilters %}
 {% block content %}
 <div class="container">
-    <div class="row my_breadcrumb">
-        <div class="container">
-            <p><a href="{% url 'shop:allPaintings' %}">모든 그림</a> / {{paintings.0.painter.name}}</p>
-        </div>
-    </div>
     {% with paintings.0.painter as artist %}
     <div class="col-12 text-center namecard-lg">
         <div class="image-cropper-lg mx-auto">
@@ -30,6 +25,9 @@
                 <a href="{% url 'shop:paintingDetail' painting.slug %}">
                     <img src="{{painting.image.url}}">
                     <h5>{{painting.name}}</h5>
+                    <p>{{painting.material}}</p>
+                    <p>{{painting.painter.name}}</p>
+                    <p>₩ {{painting.price|intcomma}}</p>
                 </a>
             </div>
             {% endwith %}

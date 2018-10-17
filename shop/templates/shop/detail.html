@@ -4,11 +4,6 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <div class="container">
-    <div class="row my_breadcrumb">
-        <div class="container">
-            <p><a href="{% url 'shop:allPaintings' %}">모든 그림</a> / <a href="{% url 'artist:artistDetailView' painting.painter.slug %}">{{painting.painter}}</a> / {{painting.name}}</p>
-        </div>
-    </div>
     <div class="row">
         {% if painting %}
         <div class="col-12 col-sm-12 col-md-12 col-lg-8">
@@ -34,15 +29,15 @@
                     </div>
                     <div>
                         <p>{{painting.painter}} 작가</p>
-                        <p>{{painting.painter.description|truncatechars:35}}</p>
                     </div>
+                    <p class="namecard-description">{{painting.painter.description}}</p>
                 </a>
             </div>
             <hr>
             <h5>더 자세한 정보 받아보기</h5>
             <p><strong>'{{painting.name}}'</strong> 작품에 대해 더욱 자세한 정보를 알고 싶으신가요?<br>
                 아래 입력창에 이메일 주소를 입력해주세요. <strong>자세한 작품 해설</strong>, <strong>구매방법</strong> 등이 포함된 메일을 발송해드립니다.</p>
-            <form action="{% url 'mail:send_brochure' painting.id %}" method="POST">
+            <form action="{% url 'mail:send_brochure' painting.slug %}" method="POST">
                 <div class="form-row">
                     <div class="form-group col-9">
                         {% csrf_token %}

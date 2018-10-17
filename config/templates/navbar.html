@@ -1,29 +1,31 @@
 {% load staticfiles %}
-<nav class="navbar navbar-expand-lg navbar-light bg-light my-navbar fixed-top">
+<nav class="navbar sticky-top navbar-light bg-light my-navbar" id="navbar">
     <div class="container">
-        <a class="navbar-brand" href="{% url 'shop:allPaintings' %}"><img src="{% static 'img/hagley_logo.png' %}" alt="logo" width="150px"></a>
-        <button class="navbar-toggler my_toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="container">
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">모든 그림</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
-                <form class="form-inline my-2 my-lg-0" action="{% url 'search:searchResult' %}" method="GET">
-                    {% csrf_token %}
-                    <input class="form-control mr-sm-2" type="search" placeholder="작가 또는 작품 검색" aria-label="Search"
-                        name="q">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-                </form>
+        <a class="navbar-brand" href="{% url 'shop:allPaintings' %}"><img class="brand-logo" src="{% static 'img/hagley_logo.png' %}" alt="logo"></a>
+        <a href="#" class="btn navbar-search hidden-md hidden-lg" data-toggle="modal" data-target="#navbar-search-modal" id="search-form-xs"><i class="fa fa-search" aria-hidden="true"></i></a>
+        <form class="form-inline my-2 my-lg-0" id="search-form-lg" action="{% url 'search:searchResult' %}" method="GET">
+            {% csrf_token %}
+            <input class="form-control mr-sm-2" type="search" placeholder="작가 및 작품명 검색" name="q">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </form>
+    </div>
+</nav>
+<!-- Modal -->
+<div class="modal fade" id="navbar-search-modal" tabindex="-1" role="dialog" aria-labelledby="Search">
+        <div class="modal-dialog modal-lg pull-right" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form action="{% url 'search:searchResult' %}" method="GET">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <input type="text" class="form-control form-control-lg" placeholder="작가 및 작품명 검색" name="q">
+                            <span class="input-group-btn">
+                                <div class="arrow-up"></div>
+                                <button class="btn btn-default btn-lg btn-search" type="submit">OK</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</nav>
