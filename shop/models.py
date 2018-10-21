@@ -5,6 +5,7 @@ class Painter(models.Model):
     name = models.CharField(max_length=250)
     slug = models.CharField(max_length=250, unique=True)
     birth = models.DateField()
+    title = models.CharField(max_length=35, default='')
     description = models.TextField(blank=True)
     image = models.ImageField(upload_to='user_profile', blank=True)
 

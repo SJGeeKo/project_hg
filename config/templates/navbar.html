@@ -1,8 +1,28 @@
 {% load staticfiles %}
-<nav class="navbar sticky-top navbar-light bg-light my-navbar" id="navbar">
+<nav class="navbar sticky-top navbar-light my-navbar" id="navbar">
     <div class="container">
-        <a class="navbar-brand" href="{% url 'shop:allPaintings' %}"><img class="brand-logo" src="{% static 'img/hagley_logo.png' %}" alt="logo"></a>
-        <a href="#" class="btn navbar-search hidden-md hidden-lg" data-toggle="modal" data-target="#navbar-search-modal" id="search-form-xs"><i class="fa fa-search" aria-hidden="true"></i></a>
+
+        {% comment %} 모바일 버전 브랜드 로고 {% endcomment %}
+        <a href="{% url 'shop:allPaintings' %}" style="width:100%">
+            <img class="brand-logo brand-logo-xs mx-auto" src="{% static 'img/hagley_logo.png' %}" alt="logo">
+        </a>
+        {% comment %} 데스크탑 버전 브랜드 로고 {% endcomment %}
+        <a class="navbar-brand" href="{% url 'shop:allPaintings' %}">
+            <img class="brand-logo brand-logo-lg" src="{% static 'img/hagley_logo.png' %}" alt="logo">
+        </a>
+
+        {% comment %} 모바일 버전 검색창 {% endcomment %}
+        <form id="search-form-xs" action="{% url 'search:searchResult' %}" method="GET">
+            {% csrf_token %}
+            <div class="form-inline my-search-bar">
+                <input type="text" class="my-search-bar-input" placeholder="작가 및 작품명 검색" name="q">
+                <button class="my-search-button" type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </form>
+
+        {% comment %} 데스크탑 버전 검색창 {% endcomment %}
         <form class="form-inline my-2 my-lg-0" id="search-form-lg" action="{% url 'search:searchResult' %}" method="GET">
             {% csrf_token %}
             <input class="form-control mr-sm-2" type="search" placeholder="작가 및 작품명 검색" name="q">
@@ -10,22 +30,3 @@
         </form>
     </div>
 </nav>
-<!-- Modal -->
-<div class="modal fade" id="navbar-search-modal" tabindex="-1" role="dialog" aria-labelledby="Search">
-        <div class="modal-dialog modal-lg pull-right" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <form action="{% url 'search:searchResult' %}" method="GET">
-                        {% csrf_token %}
-                        <div class="input-group">
-                            <input type="text" class="form-control form-control-lg" placeholder="작가 및 작품명 검색" name="q">
-                            <span class="input-group-btn">
-                                <div class="arrow-up"></div>
-                                <button class="btn btn-default btn-lg btn-search" type="submit">OK</button>
-                            </span>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>

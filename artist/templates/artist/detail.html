@@ -1,40 +1,39 @@
 {% extends "base.html" %}
 {% load humanize %}
-{% load mathfilters %}
 {% block content %}
-<div class="container">
-    {% with paintings.0.painter as artist %}
-    <div class="col-12 text-center namecard-lg">
-        <div class="image-cropper-lg mx-auto">
-            <img class="profile_img" src="{{artist.image.url}}" alt="{{artist.name}}">
-        </div>
-        <h2>{{artist.name}}</h2>
-        <p>{{artist.birth}} 출생</p>
+{% with paintings.0.painter as artist %}
+<div class="col-12 text-center namecard-lg">
+    <div class="mx-auto">
+        <img class="profile_img rounded-circle" src="{{artist.image.url}}" alt="{{artist.name}}">
     </div>
-    <p>{{artist.description}}</p>
+    <h1>{{artist.name}}</h1>
+    <p class="my-description-sub">{{artist.title}}</p>
+</div>
+<div class="artist-container">
+    <p class="my-description-detail">{{artist.description}}</p>
     {% endwith %}
     <hr>
-    <div class="container">
-        <div class="grid are-images-unloaded">
-            <div class="grid__col-sizer"></div>
-            <div class="grid__gutter-sizer"></div>
-            {% for painting in paintings.object_list %}
-            {% with width=painting.image.width height=painting.image.height %}
-            <div class="grid__item{% if width|div:height >= 1.5 %} grid__item--width2{% endif %}" data-toggle="modal"
-                data-target="#{{painting.slug}}">
-                <a href="{% url 'shop:paintingDetail' painting.slug %}">
-                    <img src="{{painting.image.url}}">
-                    <h5>{{painting.name}}</h5>
-                    <p>{{painting.material}}</p>
-                    <p>{{painting.painter.name}}</p>
-                    <p>₩ {{painting.price|intcomma}}</p>
-                </a>
+    <h2>작품 둘러보기</h2>
+</div>
+<div class="grid are-images-unloaded">
+    <div class="grid__col-sizer"></div>
+    <div class="grid__gutter-sizer"></div>
+    {% for painting in paintings.object_list %}
+    <div class="grid__item">
+        <a href="{% url 'shop:paintingDetail' painting.slug %}">
+            <img src="{{painting.image.url}}">
+            <div class="main-description">
+                <h5 class="my-painting-title">{{painting.name}}</h5>
+                <p class="my-description-sub">{{painting.material}}</p>
+                <div class="two-info">
+                    <p class="my-description-bold left">₩ {{painting.price|intcomma}}</p>
+                    <p class="my-description-sub right">{{painting.painter.name}}</p>
+                </div>
             </div>
-            {% endwith %}
-            {% endfor %}
-        </div>
-        <br>
+            <hr class="mx-2">
+        </a>
     </div>
+    {% endfor %}
 </div>
 {% endblock %}
 {% block js %}

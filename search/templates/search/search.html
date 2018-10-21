@@ -2,29 +2,29 @@
 {% load staticfiles %}
 {% load humanize %}
 {% load crispy_forms_tags %}
-{% load mathfilters %}
 {% block content %}
 <div>
-    <p class="text-center"><b>"{{query}}"</b>에 대한 검색결과</p>
+    <p class="text-center search-text"><b>"{{query}}"</b>에 대한 검색결과</p>
 </div>
-<div class="container">
-    <div class="grid are-images-unloaded">
-        <div class="grid__col-sizer"></div>
-        <div class="grid__gutter-sizer"></div>
-        {% for painting in paintings.object_list %}
-        {% with width=painting.image.width height=painting.image.height %}
-        <div class="grid__item{% if width|div:height >= 1.5 %} grid__item--width2{% endif %}" data-toggle="modal" data-target="#{{painting.slug}}">
-            <a href="{% url 'shop:paintingDetail' painting.slug %}">
-                <img src="{{painting.image.url}}">
-                <h5>{{painting.name}}</h5>
-                <p class="item-description">{{painting.description|truncatechars:100}}</p>
-            </a>
-        </div>
-        {% endwith %}
-        {% endfor %}
+<div class="grid are-images-unloaded">
+    <div class="grid__col-sizer"></div>
+    <div class="grid__gutter-sizer"></div>
+    {% for painting in paintings.object_list %}
+    <div class="grid__item">
+        <a href="{% url 'shop:paintingDetail' painting.slug %}">
+            <img src="{{painting.image.url}}">
+            <div class="main-description">
+                <h5 class="my-painting-title">{{painting.name}}</h5>
+                <p class="my-description-sub">{{painting.material}}</p>
+                <div class="two-info">
+                    <p class="my-description-bold left">₩ {{painting.price|intcomma}}</p>
+                    <p class="my-description-sub right">{{painting.painter.name}}</p>
+                </div>
+            </div>
+            <hr class="mx-2">
+        </a>
     </div>
-</div>
-<br>
+    {% endfor %}
 </div>
 {% endblock %}
 {% block js %}
@@ -58,8 +58,8 @@
     // hack CodePen to load pens as pages
     function getPageNumbers(num) {
         var pageNumbers = []
-        for(i=1; i<num; i++) {
-            pageNumbers.push(i+1)
+        for (i = 1; i < num; i++) {
+            pageNumbers.push(i + 1)
         }
         return pageNumbers
     }
