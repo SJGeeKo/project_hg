@@ -5,11 +5,12 @@
 
 .navbar-brand {
     padding-bottom: 0px !important;
+    padding-top: 0px !important;
 }
 
 .my-navbar {
     padding-top: 15px !important;
-    padding-bottom: 12px !important;
+    padding-bottom: 15px !important;
     transition: top 0.3s;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
     background: #EEEEEE;
@@ -69,6 +70,7 @@
 }
 
 .my-search-bar-input {
+    border-style: none !important;
     padding-left: 15px !important;
     flex-grow: 1;
     height: 100% !important;
@@ -132,7 +134,7 @@
 }
 
 .grid {
-    max-width: 1080px;
+    max-width: 1140px;
 }
 
 /* reveal grid after images loaded */
@@ -187,11 +189,11 @@
 	height:60px;
 	bottom:40px;
 	right:40px;
-	background-color:#1C5D99;
+	background-color:#327ae8;
 	color:#FFF;
 	border-radius:50px;
 	text-align:center;
-	box-shadow: 2px 2px 3px #999;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 a.float:hover {
@@ -219,11 +221,14 @@ a.float:hover {
 
 .detailImg {
     max-width: 100%;
-    max-height: 700px;
+    max-height: 100%;
 }
 
 .image_container {
     background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .namecard {
@@ -318,6 +323,10 @@ a.float:hover {
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) { 
+    .my-navbar {
+        padding-bottom: 12px !important;
+    }
+    
     .brand-logo-lg{
         display: none;
     }
@@ -346,10 +355,17 @@ a.float:hover {
     #search-form-xs {
         display: block;
     }
+
+    .image_container {
+        background: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 /* Small devices (landscape phones, 576px and up)*/
-@media (min-width: 576px) { 
+@media (min-width: 576px) {     
     .grid__item,
     .grid__col-sizer {
         width: 47%
@@ -361,7 +377,11 @@ a.float:hover {
     
     .grid__gutter-sizer {
         width: 6%;
-    } 
+    }
+
+    .image_container {
+        height: 700px;
+    }
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -374,6 +394,10 @@ a.float:hover {
     .grid__gutter-sizer {
         width: 2%;
     }
+
+    .image_container {
+        height: 700px;
+    }
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -385,7 +409,11 @@ a.float:hover {
 
     .grid__gutter-sizer {
         width: 2%;
-    } 
+    }
+
+    .image_container {
+        height: 700px;
+    }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -397,5 +425,9 @@ a.float:hover {
     
     .grid__gutter-sizer {
         width: 2%;
+    }
+
+    .image_container {
+        height: 700px;
     }
 }

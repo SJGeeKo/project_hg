@@ -69,6 +69,7 @@
 }
 
 .my-search-bar-input {
+    border-style: none !important;
     padding-left: 15px !important;
     flex-grow: 1;
     height: 100% !important;

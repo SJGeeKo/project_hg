@@ -23,10 +23,14 @@
         </form>
 
         {% comment %} 데스크탑 버전 검색창 {% endcomment %}
-        <form class="form-inline my-2 my-lg-0" id="search-form-lg" action="{% url 'search:searchResult' %}" method="GET">
-            {% csrf_token %}
-            <input class="form-control mr-sm-2" type="search" placeholder="작가 및 작품명 검색" name="q">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-        </form>
+        <form id="search-form-lg" action="{% url 'search:searchResult' %}" method="GET">
+                {% csrf_token %}
+                <div class="form-inline my-search-bar">
+                    <input type="text" class="my-search-bar-input" placeholder="작가 및 작품명 검색" name="q">
+                    <button class="my-search-button" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </form>
     </div>
 </nav>

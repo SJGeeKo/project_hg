@@ -12,11 +12,8 @@
             <img src="{{painting.image.url}}">
             <div class="main-description">
                 <h5 class="my-painting-title">{{painting.name}}</h5>
-                <p class="my-description-sub">{{painting.material}}</p>
-                <div class="two-info">
-                    <p class="my-description-bold left">₩ {{painting.price|intcomma}}</p>
-                    <p class="my-description-sub right">{{painting.painter.name}}</p>
-                </div>
+                <p class="my-description-sub right">{{painting.painter.name}}</p>
+                <p class="my-description-bold left">₩ {{painting.price|intcomma}}</p>
             </div>
             <hr class="mx-2">
         </a>
