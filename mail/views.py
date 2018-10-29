@@ -10,12 +10,13 @@ def sendEmail(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            from_email = form.cleaned_data.get('from_email')
+            name = form.cleaned_data.get('name')
+            from_contact = form.cleaned_data.get('from_contact')
             message = form.cleaned_data.get('message')
 
             send_mail(
                 '새로운 그림 판매 문의입니다.',
-                '{}\n\n문의자 연락처: {}'.format(message,from_email),
+                '{}\n\n문의자 이름:{}\n\n문의자 연락처: {}'.format(message, name, from_contact),
                 INFO_MAIL_ADDRESS,
                 [INFO_MAIL_ADDRESS],
             )

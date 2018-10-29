@@ -3,12 +3,12 @@
     <div class="container">
 
         {% comment %} 모바일 버전 브랜드 로고 {% endcomment %}
-        <a href="{% url 'shop:allPaintings' %}" style="width:100%">
-            <img class="brand-logo brand-logo-xs mx-auto" src="{% static 'img/hagley_logo.png' %}" alt="logo">
+        <a id="brand-logo-xs" class="mx-auto" href="{% url 'shop:allPaintings' %}">
+            <img class="brand-logo" src="{% static 'img/hagley_logo.png' %}" alt="logo">
         </a>
         {% comment %} 데스크탑 버전 브랜드 로고 {% endcomment %}
-        <a class="navbar-brand" href="{% url 'shop:allPaintings' %}">
-            <img class="brand-logo brand-logo-lg" src="{% static 'img/hagley_logo.png' %}" alt="logo">
+        <a id="brand-logo-lg" class="navbar-brand" href="{% url 'shop:allPaintings' %}">
+            <img class="brand-logo" src="{% static 'img/hagley_logo.png' %}" alt="logo">
         </a>
 
         {% comment %} 모바일 버전 검색창 {% endcomment %}
