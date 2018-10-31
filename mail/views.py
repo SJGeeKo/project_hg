@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from .forms import ContactForm, SendBrochureForm
 from shop.models import Painting
+from django.http import JsonResponse
 
 INFO_MAIL_ADDRESS = 'info@hagley.co.kr'
 
@@ -13,7 +14,7 @@ def sendEmail(request):
             name = form.cleaned_data.get('name')
             from_contact = form.cleaned_data.get('from_contact')
             message = form.cleaned_data.get('message')
-
+    
             send_mail(
                 '새로운 그림 판매 문의입니다.',
                 '{}\n\n문의자 이름:{}\n\n문의자 연락처: {}'.format(message, name, from_contact),
@@ -35,4 +36,8 @@ def sendBrochure(request, painting_slug):
                 INFO_MAIL_ADDRESS,
                 [receiver_email]
             )
-    return redirect('shop:paintingDetail', painting_slug=painting_slug)
+            data = {
+                "receiver_email": receiver_email,
+                "is_sent": True,
+            }
+    return JsonResponse(data)

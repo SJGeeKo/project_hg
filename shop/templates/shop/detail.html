@@ -15,17 +15,13 @@
             <p class="my-description-detail"><strong>'{{painting.name}}'</strong>에 담긴 이야기와 작가 소개를 받아보세요!<br>
                 아래에 이메일 주소를 입력해주세요.<br>
                 <strong>자세한 작품 해설</strong>, <strong>작가 이력</strong>, <strong>구매 방법</strong> 등을 보내드릴게요.</p>
-            <form action="{% url 'mail:send_brochure' painting.slug %}" method="POST">
-                <div class="form-row">
-                    <div class="form-group col-9 rounded-0">
-                        {% csrf_token %}
-                        {{brochure_form|crispy}}
-                    </div>
-                    <div class="form-group col-3">
-                        <button type="submit" class="my-btn">받아보기</button>
-                    </div>
-                </div>
-            </form>
+            <div class="getBrochure">
+                <form id="getBrochureForm" action="" method="POST">
+                    {% csrf_token %}
+                    {{brochure_form|crispy}}
+                </form>
+                <button id="getBrochureBtn" class="my-btn btn-flex">받아보기</button>
+            </div>
         </div>
     </div>
     <div class="col-12 col-sm-12 col-md-12 col-lg-4">
@@ -53,4 +49,41 @@
         </div>
     </div>
 </div>
+{% endblock %}
+{% block js %}
+<script>
+    $("#getBrochureBtn").click(function(){
+        var formData = $("#getBrochureForm").serialize();
+        $.ajax({
+            type: "POST",
+            url: "{% url 'mail:send_brochure' painting.slug %}",
+            data: formData,
+            success: onSuccess
+        });
+    });
+
+    function onSuccess(data) {
+        $.notify({
+            message: '메일이 전송되었습니다.',
+        },{
+            allow_dismiss: false,
+            animate: {
+                enter: 'animated fadeInDown',
+                exit: 'animated fadeOutUp'
+            },
+            delay: 1500,
+            type: 'success',
+            template: '<div data-notify="container" class="my-noti mx-auto col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+		            '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+		            '<span data-notify="icon"></span> ' +
+                    '<span data-notify="title">{1}</span> ' +
+                    '<span data-notify="message">{2}</span>' +
+                    '<div class="progress" data-notify="progressbar">' +
+                    '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+                    '</div>' +
+                    '<a href="{3}" target="{4}" data-notify="url"></a>' +
+                    '</div>' 
+        })
+    }
+</script>
 {% endblock %}

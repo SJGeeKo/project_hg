@@ -1,3 +1,5 @@
+/**** Notification ****/
+
 /**** Navbar ****/
 .navbar {
     margin-bottom: 20px;
@@ -294,6 +296,24 @@ a.float:hover {
     padding: 0px 10px 0px 10px;
 }
 
+#id_receiver_email {
+    border-radius: 0px !important;
+}
+
+.getBrochure {
+    display: flex !important;
+}
+
+#getBrochureForm {
+    flex: 1 !important;
+}
+
+.btn-flex {
+    flex: initial;
+    width: 100px;
+    margin-left: 10px;
+}
+
 /**** Artist Detail ****/
 .namecard-lg {
     padding: 5px 10px 0px 10px;
@@ -337,6 +357,11 @@ a.float:hover {
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) { 
+    .my-noti {
+        right: 5% !important;
+        width: 90% !important;
+    }
+
     .my-navbar {
         padding-bottom: 12px !important;
         padding-left: 0px !important;
@@ -387,6 +412,11 @@ a.float:hover {
         color: #FFF;
         text-align: center;
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-flex {
+        width: 80px;
+        margin-left: 10px;
     }
 }
 
