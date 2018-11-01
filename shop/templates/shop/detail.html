@@ -14,7 +14,7 @@
             <h5>작품과 작가에 대해 더 알고 싶으신가요?</h5>
             <p class="my-description-detail"><strong>'{{painting.name}}'</strong>에 담긴 이야기와 작가 소개를 받아보세요!<br>
                 아래에 이메일 주소를 입력해주세요.<br>
-                <strong>자세한 작품 해설</strong>, <strong>작가 이력</strong>, <strong>구매 방법</strong> 등을 보내드릴게요.</p>
+                <strong>자세한 작품 해설</strong>, <strong>작가 이력</strong>, <strong>구매 방법</strong> 등을 보내드립니다.</p>
             <div class="getBrochure">
                 <form id="getBrochureForm" action="" method="POST">
                     {% csrf_token %}
@@ -52,6 +52,18 @@
 {% endblock %}
 {% block js %}
 <script>
+    //-------------------------------------//
+    // disable enter key in form
+    $('#getBrochureForm').on('keyup keypress', function(e) {
+    var keyCode = e.keyCode || e.which;
+    if (keyCode === 13) { 
+        e.preventDefault();
+        return false;
+    }
+    });
+
+    //-------------------------------------//
+    // send mail with ajax
     $("#getBrochureBtn").click(function(){
         var formData = $("#getBrochureForm").serialize();
         $.ajax({

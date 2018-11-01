@@ -127,14 +127,6 @@
     font-weight: bold;
 }
 
-.two-info {
-    display: flex;
-}
-
-.two-info .left {
-    flex-grow: 1;
-}
-
 .grid {
     max-width: 1140px;
 }

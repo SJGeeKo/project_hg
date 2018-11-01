@@ -21,10 +21,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{% url 'mail:sendEmail' %}" method="POST">
+                <form id="sellfabForm" method="POST">
                     {% csrf_token %}
                     {{form|crispy}}
-                    <input class="btn btn-primary" type="submit" value="문의하기">
+                    <button id="sellfabBtn" class="btn btn-primary" data-dismiss="modal">문의하기</button>
                 </form>
             </div>
         </div>
