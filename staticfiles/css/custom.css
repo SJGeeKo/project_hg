@@ -1,10 +1,16 @@
+.my-container {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    background: #eeeeee;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
 /**** Notification ****/
 
 /**** Navbar ****/
-.navbar {
-    margin-bottom: 20px;
-}
-
 .navbar-brand {
     padding-bottom: 0px !important;
     padding-top: 0px !important;
@@ -15,7 +21,7 @@
     padding-bottom: 15px !important;
     transition: top 0.3s;
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
-    background: #EEEEEE;
+    background: #fff;
 }
 
 .brand-logo {
@@ -59,6 +65,8 @@
 }
 
 .my-search-bar {
+    border: 1px solid #EA562A;
+    border-radius: 2px;
     height: 38px;
     display: flex;
 }
@@ -69,20 +77,19 @@
     background: #ffffff !important;
     border: 0px !important;
     height: 100% !important;
+    border-radius: 2px;
 }
 
 .my-search-bar-input {
+    font-size: 14px;
     border-style: none !important;
     padding-left: 15px !important;
     flex-grow: 1;
     height: 100% !important;
+    border-radius: 2px;
 }
 
 /**** Footer ****/
-.footer {
-    margin-top: 10px;
-}
-
 .my_footer {
     background: #eeeeee;
     height: 60px;
@@ -98,7 +105,7 @@
 }
 
 .main-description {
-    padding: 10px 10px 2px 10px;
+    padding: 10px 10px 10px 10px;
 }
 
 .main-description p {
@@ -149,8 +156,10 @@
 }
 
 .grid__item {
-    margin-bottom: 4px;
+    background: #fff;
+    margin-bottom: 20px;
     float: left;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
 }
 
 .grid__item a {
@@ -166,6 +175,7 @@
 .grid__item img {
     display: block;
     width: 100%;
+    padding: 10px 10px 0px 10px;
 }
 
 .page-load-status {
@@ -189,21 +199,7 @@
 	text-align:center;
 	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
 }
-/* 
-.float_m {
-    position: fixed;
-    width: 85%;
-    height: 60px;
-    bottom: 4%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 60px;
-    background-color: #327ae8;
-    color: #FFF;
-    text-align: center;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
-}
- */
+
 a.float:hover {
     text-decoration: none;
     color: #ffffff
@@ -394,9 +390,9 @@ a.float:hover {
 
     .float {
         position: fixed;
-        width: 85%;
-        height: 60px;
-        bottom: 2.5%;
+        width: 75%;
+        height: 55px;
+        bottom: 3%;
         left: 50%;
         transform: translateX(-50%);
         border-radius: 60px;
@@ -406,8 +402,13 @@ a.float:hover {
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
     }
 
+    .my-float {
+        margin-top: 16px;
+        font-size: 15px;
+    }
+
     .btn-flex {
-        width: 80px;
+        width: 90px;
         margin-left: 10px;
     }
 }

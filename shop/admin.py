@@ -9,6 +9,7 @@ class PainterAdmin(admin.ModelAdmin):
 admin.site.register(Painter, PainterAdmin)
 
 class PaintingAdmin(admin.ModelAdmin):
+    readonly_fields = ('date_added',)
     list_display=['name','painter','price','available']
     list_editable=['price','available','painter']
     prepopulated_fields={'slug':('name',)}

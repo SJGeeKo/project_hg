@@ -5,7 +5,7 @@ from django.core.paginator import Paginator, EmptyPage, InvalidPage
 
 # Create your views here.
 def allPaintings(request):
-    paintings_list = Painting.objects.all()
+    paintings_list = Painting.objects.all().order_by('-date_added')
     form = ContactForm()
     '''
     Paginator

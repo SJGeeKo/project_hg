@@ -28,6 +28,7 @@ class Painting(models.Model):
     price = models.IntegerField(default=100000)
     image = models.ImageField(upload_to='painting', blank=False)
     available = models.BooleanField(default=True)
+    date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ('name',)
