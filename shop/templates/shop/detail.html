@@ -3,6 +3,7 @@
 {% load humanize %}
 {% load crispy_forms_tags %}
 {% block content %}
+<div class="container margin-top-20">
 <div class="row">
     <div class="col-12 col-sm-12 col-md-12 col-lg-8">
         <div class="image_container text-center">
@@ -42,12 +43,13 @@
                     </div>
                     <p class="my-description-detail">{{painting.painter}}</p>
                     <p class="my-description-sub">{{painting.painter.title}}</p>
-                    <button class="my-btn-lg mt-3">작가의 다른 작품 감상하기</button>
+                    <button class="my-btn-lg mt-3">이 작가의 다른 작품 감상하기</button>
                 </a>
             </div>
             <hr>
         </div>
     </div>
+</div>
 </div>
 {% endblock %}
 {% block js %}

@@ -2,6 +2,8 @@
 {% load humanize %}
 {% block content %}
 {% with paintings.0.painter as artist %}
+<div class="my-container">
+<div class="container">
 <div class="col-12 text-center namecard-lg">
     <div class="mx-auto">
         <img class="profile_img rounded-circle" src="{{artist.image.url}}" alt="{{artist.name}}">
@@ -27,10 +29,11 @@
                 <p class="my-description-sub right">{{painting.painter.name}}</p>
                 <p class="my-description-bold left">₩ {{painting.price|intcomma}}</p>
             </div>
-            <hr class="mx-2">
         </a>
     </div>
     {% endfor %}
+</div>
+</div>
 </div>
 {% include "shop/sellfab.html" %}
 {% endblock %}

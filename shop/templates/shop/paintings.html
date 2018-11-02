@@ -3,6 +3,8 @@
 {% load humanize %}
 {% load crispy_forms_tags %}
 {% block content %}
+<div class="my-container">
+<div class="container">
 <div class="grid are-images-unloaded">
     <div class="grid__col-sizer"></div>
     <div class="grid__gutter-sizer"></div>
@@ -15,12 +17,13 @@
                 <p class="my-description-sub right">{{painting.painter.name}}</p>
                 <p class="my-description-bold left">₩ {{painting.price|intcomma}}</p>
             </div>
-            <hr class="mx-2">
         </a>
     </div>
     {% endfor %}
 </div>
 {% include "shop/sellfab.html" %}
+</div>
+</div>
 {% endblock %}
 {% block js %}
 <script>
