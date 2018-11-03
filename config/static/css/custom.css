@@ -1,7 +1,19 @@
+.my-sub-title {
+    padding-top: 10px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #010001;
+}
+
 .my-container {
     padding-top: 20px;
     padding-bottom: 10px;
     background: #eeeeee;
+}
+
+.my-container-2 {
+    padding-top: 20px;
 }
 
 .margin-top-20 {
@@ -105,7 +117,7 @@
 }
 
 .main-description {
-    padding: 10px 10px 10px 10px;
+    padding: 15px 10px 10px 10px;
 }
 
 .main-description p {
@@ -318,21 +330,6 @@ a.float:hover {
 .namecard-lg .profile_img {
     width: 140px;
     height: 140px;
-}
-
-.artist-container {
-    margin: 20px 10px 20px 10px;
-}
-
-.artist-container h2 {
-    margin-top: 30px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #010001;
-}
-
-.artist-container .my-description-detail {
-    margin-bottom: 20px !important;
 }
 
 /**** Search ****/
