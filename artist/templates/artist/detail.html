@@ -9,10 +9,11 @@
                 <img class="profile_img rounded-circle" src="{{artist.image.url}}" alt="{{artist.name}}">
             </div>
             <h1>{{artist.name}}</h1>
-            <p class="my-description-sub">{{artist.title}}</p>
+            <p id="artist-title" class="my-description-sub">{{artist.title}}</p>
         </div>
         <div class="col-12 px-0">
-            <p class="my-description-detail mx-2 mb-4">{{artist.description}}</p>
+            <p id="artist-description" class="my-description-detail mx-2">{{artist.description}}</p>
+            <p id="artist-description-full" class="my-description-detail mx-2 d-none">{{artist.description}}</p>
         </div>
     </div>
     {% endwith %}
@@ -135,5 +136,13 @@
                     '</div>'
             });
     };
+
+    var artistDescription = document.getElementById("artist-description");
+    $clamp(artistDescription, {clamp: 3, useNativeClamp: false, truncationHTML: "<a id='read_more' href='#'>더 보기</a>"});
+
+    $("#read_more").click(function(){
+        artistDescription.remove();
+        $("#artist-description-full").removeClass("d-none");
+    });
 </script>
 {% endblock %}
