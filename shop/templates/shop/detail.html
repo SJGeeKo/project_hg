@@ -6,7 +6,7 @@
 <div class="container margin-top-20">
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-8">
-            <div class="image_container text-center no-func">
+            <div class="image_container text-center d-none">
                 <img class="detailImg" src="{{painting.image.url}}" alt="{{painting.slug}}">
                 {% for detailImg in paintingImgs %}
                 <img class="detailImg" src="{{detailImg.image.url}}">
@@ -123,7 +123,7 @@
     });
 
     $(document).ready(function () {
-        $('.no-fouc').removeClass('no-fouc');
+        $('.image_container').removeClass('d-none');
     });
 </script>
 {% endblock %}
