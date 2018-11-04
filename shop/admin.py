@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Painter, Painting
+from .models import Painter, Painting, PaintingImg
 
 # Register your models here.
 class PainterAdmin(admin.ModelAdmin):
@@ -8,7 +8,12 @@ class PainterAdmin(admin.ModelAdmin):
 
 admin.site.register(Painter, PainterAdmin)
 
+class PaintingImgInline(admin.TabularInline):
+    model = PaintingImg
+    extra = 3
+
 class PaintingAdmin(admin.ModelAdmin):
+    inlines = [PaintingImgInline,]
     readonly_fields = ('date_added',)
     list_display=['name','painter','price','available']
     list_editable=['price','available','painter']

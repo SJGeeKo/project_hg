@@ -4,70 +4,73 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <div class="container margin-top-20">
-<div class="row">
-    <div class="col-12 col-sm-12 col-md-12 col-lg-8">
-        <div class="image_container text-center">
-            <img class="detailImg" src="{{painting.image.url}}" alt="{{painting.slug}}">
+    <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-8">
+            <div class="image_container text-center no-func">
+                <img class="detailImg" src="{{painting.image.url}}" alt="{{painting.slug}}">
+                {% for detailImg in paintingImgs %}
+                <img class="detailImg" src="{{detailImg.image.url}}">
+                {% endfor %}
+            </div>
         </div>
-    </div>
-    <div class="col-12 col-sm-12 col-md-12 col-lg-8 order-last">
-        <div class="email-container">
-            <h5>작품과 작가에 대해 더 알고 싶으신가요?</h5>
-            <p class="my-description-detail"><strong>'{{painting.name}}'</strong>에 담긴 이야기와 작가 소개를 받아보세요!<br>
-                아래에 이메일 주소를 입력해주세요.<br>
-                <strong>자세한 작품 해설</strong>, <strong>작가 이력</strong>, <strong>구매 방법</strong> 등을 보내드립니다.</p>
-            <div class="getBrochure">
-                <form id="getBrochureForm" action="" method="POST">
-                    {% csrf_token %}
-                    {{brochure_form|crispy}}
-                </form>
-                <button id="getBrochureBtn" class="my-btn btn-flex">받아보기</button>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-8 order-last">
+            <div class="email-container">
+                <h5>작품과 작가에 대해 더 알고 싶으신가요?</h5>
+                <p class="my-description-detail"><strong>'{{painting.name}}'</strong>에 담긴 이야기와 작가 소개를 받아보세요!<br>
+                    아래에 이메일 주소를 입력해주세요.<br>
+                    <strong>자세한 작품 해설</strong>, <strong>작가 이력</strong>, <strong>구매 방법</strong> 등을 보내드립니다.</p>
+                <div class="getBrochure">
+                    <form id="getBrochureForm" action="" method="POST">
+                        {% csrf_token %}
+                        {{brochure_form|crispy}}
+                    </form>
+                    <button id="getBrochureBtn" class="my-btn btn-flex">받아보기</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+            <div class="main-description pb-0">
+                {% comment %} 그림 정보 {% endcomment %}
+                <h1>{{painting.name}}</h1>
+                <p class="my-description-sub">{{painting.painter.name}}</p>
+                <p id="painting-desc" class="my-description-detail">{{painting.description}}</p>
+                <p id="painting-desc-full" class="my-description-detail d-none">{{painting.description}}</p>
+                <p class="my-description-sub">{{painting.material}}</p>
+                <p class="my-description-sub">{{painting.width}}cm x {{painting.height}}cm</p>
+                <p class="my-description-bold mt-1">₩ {{painting.price|intcomma}}</p>
+                <hr>
+                {% comment %} 작가 네임카드 {% endcomment %}
+                <div class="col-12 namecard text-center">
+                    <a href="{% url 'artist:artistDetailView' painting.painter.slug %}">
+                        <div class="mx-auto">
+                            <img class="profile_img rounded-circle" src="{{painting.painter.image.url}}" alt="{{painting.painter.name}}">
+                        </div>
+                        <p class="my-description-detail">{{painting.painter}}</p>
+                        <p class="my-description-sub">{{painting.painter.title}}</p>
+                        <button class="my-btn-lg mt-3">이 작가의 다른 작품 감상하기</button>
+                    </a>
+                </div>
+                <hr class="mb-0">
             </div>
         </div>
     </div>
-    <div class="col-12 col-sm-12 col-md-12 col-lg-4">
-        <div class="main-description">
-            {% comment %} 그림 정보 {% endcomment %}
-            <h1>{{painting.name}}</h1>
-            <p class="my-description-sub">{{painting.painter.name}}</p>
-            <p id="painting-desc" class="my-description-detail">{{painting.description}}</p>
-            <p id="painting-desc-full" class="my-description-detail d-none">{{painting.description}}</p>
-            <p class="my-description-sub">{{painting.material}}</p>
-            <p class="my-description-sub">{{painting.width}}cm x {{painting.height}}cm</p>
-            <p class="my-description-bold mt-1">₩ {{painting.price|intcomma}}</p>
-            <hr>
-            {% comment %} 작가 네임카드 {% endcomment %}
-            <div class="col-12 namecard text-center">
-                <a href="{% url 'artist:artistDetailView' painting.painter.slug %}">
-                    <div class="mx-auto">
-                        <img class="profile_img rounded-circle" src="{{painting.painter.image.url}}" alt="{{painting.painter.name}}">
-                    </div>
-                    <p class="my-description-detail">{{painting.painter}}</p>
-                    <p class="my-description-sub">{{painting.painter.title}}</p>
-                    <button class="my-btn-lg mt-3">이 작가의 다른 작품 감상하기</button>
-                </a>
-            </div>
-            <hr>
-        </div>
-    </div>
-</div>
 </div>
 {% endblock %}
 {% block js %}
 <script>
     //-------------------------------------//
     // disable enter key in form
-    $('#getBrochureForm').on('keyup keypress', function(e) {
-    var keyCode = e.keyCode || e.which;
-    if (keyCode === 13) { 
-        e.preventDefault();
-        return false;
-    }
+    $('#getBrochureForm').on('keyup keypress', function (e) {
+        var keyCode = e.keyCode || e.which;
+        if (keyCode === 13) {
+            e.preventDefault();
+            return false;
+        }
     });
 
     //-------------------------------------//
     // send mail with ajax
-    $("#getBrochureBtn").click(function(){
+    $("#getBrochureBtn").click(function () {
         var formData = $("#getBrochureForm").serialize();
         $.ajax({
             type: "POST",
@@ -80,33 +83,47 @@
     function onSuccess(data) {
         $.notify({
             message: '메일이 전송되었습니다.',
-        },{
-            allow_dismiss: false,
-            animate: {
-                enter: 'animated fadeInDown',
-                exit: 'animated fadeOutUp'
-            },
-            delay: 1500,
-            type: 'success',
-            template: '<div data-notify="container" class="my-noti mx-auto col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
-		            '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
-		            '<span data-notify="icon"></span> ' +
+        }, {
+                allow_dismiss: false,
+                animate: {
+                    enter: 'animated fadeInDown',
+                    exit: 'animated fadeOutUp'
+                },
+                delay: 1500,
+                type: 'success',
+                template: '<div data-notify="container" class="my-noti mx-auto col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+                    '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+                    '<span data-notify="icon"></span> ' +
                     '<span data-notify="title">{1}</span> ' +
                     '<span data-notify="message">{2}</span>' +
                     '<div class="progress" data-notify="progressbar">' +
                     '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
                     '</div>' +
                     '<a href="{3}" target="{4}" data-notify="url"></a>' +
-                    '</div>' 
-        })
+                    '</div>'
+            })
     }
 
+    //-------------------------------------//
+    // Truncate at first and show all contents when a user clicks 'read more'
     var paintingDesc = document.getElementById("painting-desc");
-    $clamp(paintingDesc, {clamp: 3, useNativeClamp: false, truncationHTML: "<a id='read_more' href='#'>더 보기</a>"});
+    $clamp(paintingDesc, { clamp: 3, useNativeClamp: false, truncationHTML: "<a id='read_more' href='#'>더 보기</a>" });
 
-    $("#read_more").click(function(){
+    $("#read_more").click(function () {
         paintingDesc.remove();
         $("#painting-desc-full").removeClass("d-none");
+    });
+
+    //-------------------------------------//
+    // Activate slick to show multiple imgs
+    $('.image_container').slick({
+        arrows: false,
+        dots: true,
+        adaptiveHeight: true,
+    });
+
+    $(document).ready(function () {
+        $('.no-fouc').removeClass('no-fouc');
     });
 </script>
 {% endblock %}

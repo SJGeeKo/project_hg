@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Painting
+from .models import Painting, PaintingImg
 from mail.forms import ContactForm, SendBrochureForm
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
 
@@ -25,6 +25,7 @@ def paintingDetail(request, painting_slug):
     brochure_form = SendBrochureForm()
     try:
         painting = Painting.objects.get(slug = painting_slug)
+        paintingImgs = painting.images.all()
     except Exception as e:
         raise e
-    return render(request, 'shop/detail.html', {'painting': painting, 'brochure_form': brochure_form})
+    return render(request, 'shop/detail.html', {'painting': painting, 'paintingImgs': paintingImgs, 'brochure_form': brochure_form})

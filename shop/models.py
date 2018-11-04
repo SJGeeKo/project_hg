@@ -37,3 +37,7 @@ class Painting(models.Model):
 
     def __str__(self):
         return '{}'.format(self.name)
+
+class PaintingImg(models.Model):
+    painting = models.ForeignKey(Painting, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='paintingImgs', default="")
