@@ -5,7 +5,7 @@ from mail.forms import ContactForm
 
 # Create your views here.
 def artistDetailView(request, artist_slug):
-    paintings_list = Painting.objects.all().filter(painter__slug__exact = artist_slug)
+    paintings_list = Painting.objects.all().filter(painter__slug__exact = artist_slug).order_by('-date_added')
     form = ContactForm()
     '''
     Paginator

@@ -34,7 +34,9 @@
                 <h1>{{painting.name}}</h1>
                 <p class="my-description-sub">{{painting.painter.name}}</p>
                 <p id="painting-desc" class="my-description-detail">{{painting.description}}</p>
-                <p id="painting-desc-full" class="my-description-detail d-none">{{painting.description}}</p>
+                <div id="painting-desc-full" class="my-description-detail d-none">
+                    {{painting.description|linebreaksbr}}
+                </div>
                 <p class="my-description-sub">{{painting.material}}</p>
                 <p class="my-description-sub">{{painting.width}}cm x {{painting.height}}cm</p>
                 <p class="my-description-bold mt-1">₩ {{painting.price|intcomma}}</p>

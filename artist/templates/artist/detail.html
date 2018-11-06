@@ -13,7 +13,9 @@
         </div>
         <div class="col-12 px-0">
             <p id="artist-description" class="my-description-detail mx-2">{{artist.description}}</p>
-            <p id="artist-description-full" class="my-description-detail mx-2 d-none">{{artist.description}}</p>
+            <div id="artist-description-full" class="my-description-detail mx-2 d-none">
+                {{artist.description|linebreaksbr}}
+            </div>
         </div>
     </div>
     {% endwith %}

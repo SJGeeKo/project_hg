@@ -7,7 +7,7 @@ class Painter(models.Model):
     birth = models.DateField()
     title = models.CharField(max_length=35, default='')
     description = models.TextField(blank=True)
-    image = models.ImageField(upload_to='user_profile', blank=True)
+    image = models.ImageField(upload_to='user_profile', default="user_profile/profile_default.jpg")
 
     class Meta:
         ordering = ('name',)
@@ -40,4 +40,4 @@ class Painting(models.Model):
 
 class PaintingImg(models.Model):
     painting = models.ForeignKey(Painting, related_name='images', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='paintingImgs', default="")
+    image = models.ImageField(upload_to='paintingImgs', default="", blank=True)
