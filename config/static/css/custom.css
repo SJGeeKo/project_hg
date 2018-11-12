@@ -113,6 +113,26 @@
 }
 
 /**** Paintings ****/
+.carousel-container {
+    display: flex;
+    height: 300px;
+}
+
+.carousel-img {
+    flex: 1;
+    object-fit: cover;
+}
+
+.carousel-text {
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.carousel-text-ml {
+    padding-left: 108.500px !important;
+}
+
 .background {
     position: relative;
 }
@@ -236,7 +256,7 @@ a.float:hover {
     margin: 10px 0px 10px 0px !important;
 }
 
-.slick-slide div {
+.image_container .slick-list .slick-track .slick-slide div {
     display: flex;
     height: 700px;
     justify-content: center;
@@ -343,7 +363,7 @@ a.float:hover {
 
 /**** Search ****/
 .search-text {
-    margin: 25px 0px 20px 0px;
+    margin: 5px 0px 20px 0px;
     font-size: 18px;
 }
 
