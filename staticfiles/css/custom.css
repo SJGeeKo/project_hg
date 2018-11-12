@@ -132,6 +132,7 @@
 
 #carousel2 {
     display: none;
+    width: 100%;
 }
 
 .carousel-main-text,
@@ -151,6 +152,11 @@
     object-fit: cover;
     height: 270px;
     width: 100%;
+}
+
+.carousel-btn-flex {
+    display: flex;
+    justify-content: space-between;
 }
 
 .background {
@@ -331,7 +337,7 @@ a.float:hover {
 }
 
 .my-btn-or {
-    height: 38px;
+    height: 44px;
     width: 135px;
     background: #EA562A;
     font-size: 16px;
@@ -529,6 +535,10 @@ a.float:hover {
     #carousel2 {
         display: inline;
     }
+
+    .carousel-btn-flex {
+        justify-content: flex-start;
+    }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -556,5 +566,9 @@ a.float:hover {
 
     #carousel2 {
         display: inline;
+    }
+
+    .carousel-btn-flex {
+        justify-content: flex-start;
     }
 }
