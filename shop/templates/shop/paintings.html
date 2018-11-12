@@ -3,6 +3,22 @@
 {% load humanize %}
 {% load crispy_forms_tags %}
 {% block content %}
+<div class="wrap-container">
+    <div id="carousel1" class="container">
+        <div class="row">
+            <div class="col-12 col-m-6 col-lg-6 col-xl-6">
+                <h1 class="carousel-main-text">멋진 작품을 맡겨보세요</h1>
+                <h6 class="carousel-sub-text">헤이글리에서 프로, 아마추어 작가분들의 멋진 작품을 국내외 미술 애호가분들께 소개해드립니다.</h6>
+                <button type="btn" class="my-btn-or mt-3">판매 의뢰하기</button>
+            </div>
+        </div>
+    </div>
+    <div id="carousel2">
+        <div class="carousel-img-container" style="margin-left: 50%">
+            <img src="{% static 'img/sip.jpg' %}" class="carousel-img" alt="main_image">
+        </div>
+    </div>
+</div>
 <div class="my-container">
     <div class="container">
         <div class="grid are-images-unloaded">

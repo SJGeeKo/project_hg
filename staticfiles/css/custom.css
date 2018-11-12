@@ -113,24 +113,44 @@
 }
 
 /**** Paintings ****/
-.carousel-container {
+.wrap-container {
+    background: #d7d2cb;
+    height: 270px;
     display: flex;
-    height: 300px;
-}
-
-.carousel-img {
-    flex: 1;
-    object-fit: cover;
-}
-
-.carousel-text {
-    display: flex;
-    flex: 1;
+    justify-content: center;
     align-items: center;
 }
 
-.carousel-text-ml {
-    padding-left: 108.500px !important;
+#carousel1,
+#carousel2 {
+    position: absolute;
+}
+
+#carousel1 {
+    z-index: 10;
+}
+
+#carousel2 {
+    display: none;
+}
+
+.carousel-main-text,
+.carousel-sub-text {
+    word-break: keep-all;
+}
+
+.carousel-main-text {
+    font-weight: 800;
+}
+
+.carousel-img-container {
+    width:50%;
+}
+
+.carousel-img {
+    object-fit: cover;
+    height: 270px;
+    width: 100%;
 }
 
 .background {
@@ -304,6 +324,16 @@ a.float:hover {
     height: 38px;
     width: 100%;
     background: #327ae8;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    border: 0px;
+}
+
+.my-btn-or {
+    height: 38px;
+    width: 135px;
+    background: #EA562A;
     font-size: 16px;
     font-weight: bold;
     color: #fff;
@@ -487,6 +517,18 @@ a.float:hover {
     .image_container {
         height: 700px;
     }
+
+    .wrap-container {
+        height: 300px;
+    }
+    
+    .carousel-img {
+        height: 300px;
+    }
+
+    #carousel2 {
+        display: inline;
+    }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -502,5 +544,17 @@ a.float:hover {
 
     .image_container {
         height: 700px;
+    }
+
+    .wrap-container {
+        height: 300px;
+    }
+
+    .carousel-img {
+        height: 300px;
+    }
+
+    #carousel2 {
+        display: inline;
     }
 }
