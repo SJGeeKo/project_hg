@@ -1,4 +1,6 @@
 from django.db import models
+from imagekit.models import ImageSpecField
+from imagekit.processors import Thumbnail
 
 # Create your models here.
 class Painter(models.Model):
@@ -27,6 +29,12 @@ class Painting(models.Model):
     height = models.IntegerField(default=10)
     price = models.IntegerField(default=100000)
     image = models.ImageField(upload_to='painting', blank=False)
+    thumbnail = ImageSpecField(
+        source = 'image',
+        processors = [Thumbnail(350)],
+        format='JPEG',
+        options = {'quality': 60}
+    )
     available = models.BooleanField(default=True)
     date_added = models.DateTimeField(auto_now_add=True)
 

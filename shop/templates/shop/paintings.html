@@ -30,7 +30,7 @@
             {% for painting in paintings.object_list %}
             <div class="grid__item">
                 <a href="{% url 'shop:paintingDetail' painting.slug %}">
-                    <img src="{{painting.image.url}}">
+                    <img src="{{painting.thumbnail.url}}">
                     <div class="main-description">
                         <h5 class="my-painting-title">{{painting.name}}</h5>
                         <p class="my-description-sub right">{{painting.painter.name}}</p>
