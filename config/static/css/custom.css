@@ -471,6 +471,10 @@ a.float:hover {
     .slick-slide div {
         height: 100%;
     }
+
+    .image_container .slick-list .slick-track .slick-slide div {
+        height: auto;
+    }
 }
 
 /* Small devices (landscape phones, 576px and up)*/

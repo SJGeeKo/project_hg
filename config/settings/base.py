@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'search',
     'mathfilters',
     'artist',
+    'imagekit',
 ]
 
 MIDDLEWARE = [
