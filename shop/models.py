@@ -25,8 +25,8 @@ class Painting(models.Model):
     material = models.CharField(max_length = 250, default='Oil')
     description = models.TextField(blank=True)
     painter = models.ForeignKey(Painter, on_delete=models.CASCADE)
-    width = models.IntegerField(default=10)
-    height = models.IntegerField(default=10)
+    width = models.DecimalField(max_digits=4, decimal_places=1)
+    height = models.DecimalField(max_digits=4, decimal_places=1)
     price = models.IntegerField(default=100000)
     image = models.ImageField(upload_to='painting', blank=False)
     thumbnail = ImageSpecField(

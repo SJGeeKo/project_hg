@@ -33,7 +33,7 @@
                 {% comment %} 그림 정보 {% endcomment %}
                 <h1>{{painting.name}}</h1>
                 <p class="my-description-sub">{{painting.painter.name}}</p>
-                <p id="painting-desc" class="my-description-detail">{{painting.description}}</p>
+                <p id="painting-desc" class="my-description-detail">{{painting.description|linebreaksbr}}</p>
                 <div id="painting-desc-full" class="my-description-detail d-none">
                     {{painting.description|linebreaksbr}}
                 </div>
