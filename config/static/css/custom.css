@@ -124,15 +124,8 @@
 .wrap-container {
     background: #d7d2cb;
     height: 270px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-#carousel1,
-#carousel2 {
-    position: absolute;
-}
 
 #carousel1 {
     z-index: 10;
@@ -151,15 +144,13 @@
 .carousel-main-text {
     font-weight: 800;
 }
-
-.carousel-img-container {
-    width:50%;
+.flex-center {
+    display: flex;
+    align-items: center;
 }
-
-.carousel-img {
+.carousel-img-fit {
     object-fit: cover;
     height: 270px;
-    width: 100%;
 }
 
 .carousel-btn-flex {

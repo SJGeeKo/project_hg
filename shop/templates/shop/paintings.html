@@ -6,19 +6,18 @@
 <div class="wrap-container">
     <div id="carousel1" class="container">
         <div class="row">
-            <div class="col-12 col-md-12 col-lg-6 col-xl-6">
-                <h1 class="carousel-main-text">멋진 작품을 맡겨보세요</h1>
-                <h6 class="carousel-sub-text">헤이글리에서 프로, 아마추어 작가분들의 멋진 작품을 국내외 미술 애호가분들께 소개해드립니다.</h6>
-                <div class="carousel-btn-flex">
-                    <div></div>
-                    <button type="btn" class="my-btn-or mt-3" data-toggle="modal" data-target="#modal-sell">판매 의뢰하기</button>
+            <div class="col-12 col-md-12 col-lg-6 col-xl-6 flex-center">
+                <div>
+                    <h1 class="carousel-main-text">멋진 작품을 맡겨보세요</h1>
+                    <h6 class="carousel-sub-text">헤이글리에서 프로, 아마추어 작가분들의 멋진 작품을 국내외 미술 애호가분들께 소개해드립니다.</h6>
+                    <div class="carousel-btn-flex">
+                        <button type="btn" class="my-btn-or mt-3" data-toggle="modal" data-target="#modal-sell">판매 의뢰하기</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div id="carousel2">
-        <div class="carousel-img-container" style="margin-left: 50%">
-            <img src="{% static 'img/sip.jpg' %}" class="carousel-img" alt="main_image">
+            <div id="carousel2" class="col-lg-6 col-xl-6" >
+                <img src="{% static 'img/sip.jpg' %}" id="id_carousel_img" class="carousel-img carousel-img-fit" alt="main_image">
+            </div>
         </div>
     </div>
 </div>
@@ -65,6 +64,7 @@
 {% endblock %}
 {% block js %}
 <script>
+
     //-------------------------------------//
     // init Masonry
 
@@ -158,5 +158,15 @@
                     '</div>'
             });
     };
+
+    function resize_carousel() {
+        $("#id_carousel_img").width(window.innerWidth / 2);
+    }
+
+    resize_carousel();
+    
+    window.addEventListener("resize", function () {
+        resize_carousel();
+    });
 </script>
 {% endblock %}
