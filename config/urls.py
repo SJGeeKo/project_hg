@@ -17,16 +17,20 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls.i18n import i18n_patterns
+
+
 from shop.views import allPaintings as allPaintings
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
+urlpatterns = i18n_patterns(
     path('', allPaintings, name='allPaintings'),
+    path('admin/', admin.site.urls),
     path('shop/', include('shop.urls')),
     path('mail/', include('mail.urls')),
     path('search/', include('search.urls')),
     path('artist/', include('artist.urls')),
-]
+    prefix_default_language=False
+)
 
 if settings.DEBUG:
 	urlpatterns += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
