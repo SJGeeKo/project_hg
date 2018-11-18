@@ -4,8 +4,8 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <div class="wrap-container">
-    <div id="carousel1" class="container">
-        <div class="row">
+    <div id="carousel1" class="container" style="height: inherit">
+        <div class="row" style="height: inherit">
             <div class="col-12 col-md-12 col-lg-6 col-xl-6 flex-center">
                 <div>
                     <h1 class="carousel-main-text">멋진 작품을 맡겨보세요</h1>
@@ -15,8 +15,7 @@
                     </div>
                 </div>
             </div>
-            <div id="carousel2" class="col-lg-6 col-xl-6" >
-                <img src="{% static 'img/sip.jpg' %}" id="id_carousel_img" class="carousel-img carousel-img-fit" alt="main_image">
+            <div id="carousel2" style="background-image:url({% static 'img/sip.jpg' %})" class="carousel2">
             </div>
         </div>
     </div>
@@ -160,7 +159,7 @@
     };
 
     function resize_carousel() {
-        $("#id_carousel_img").width(window.innerWidth / 2);
+        $("#carousel2").width(window.innerWidth / 2);
     }
 
     resize_carousel();

@@ -1,3 +1,11 @@
+.sticky-custom {
+    position: fixed !important;
+    position: sticky !important;
+    top: 0;
+    width: 100%;
+    z-index: 1020;
+}
+
 .my-sub-title {
     padding-top: 10px;
     margin-bottom: 15px;
@@ -5,14 +13,6 @@
     font-weight: bold;
     color: #010001;
 }
-
-.sticky-custom {
-    position: fixed !important;
-    position: sticky !important;
-    top: 0;
-    width: 100%;
-    z-index: 1020;
-  }
 
 .my-container {
     padding-top: 20px;
@@ -133,7 +133,12 @@
 
 #carousel2 {
     display: none;
-    width: 100%;
+    position: absolute;
+    right: 0;
+    height: inherit;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
 .carousel-main-text,
@@ -147,10 +152,6 @@
 .flex-center {
     display: flex;
     align-items: center;
-}
-.carousel-img-fit {
-    object-fit: cover;
-    height: 270px;
 }
 
 .carousel-btn-flex {
