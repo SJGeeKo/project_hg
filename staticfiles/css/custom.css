@@ -1,3 +1,11 @@
+.sticky-custom {
+    position: fixed !important;
+    position: sticky !important;
+    top: 0;
+    width: 100%;
+    z-index: 1020;
+}
+
 .my-sub-title {
     padding-top: 10px;
     margin-bottom: 15px;
@@ -5,14 +13,6 @@
     font-weight: bold;
     color: #010001;
 }
-
-.sticky-custom {
-    position: fixed !important;
-    position: sticky !important;
-    top: 0;
-    width: 100%;
-    z-index: 1020;
-  }
 
 .my-container {
     padding-top: 20px;
@@ -124,15 +124,8 @@
 .wrap-container {
     background: #d7d2cb;
     height: 270px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-#carousel1,
-#carousel2 {
-    position: absolute;
-}
 
 #carousel1 {
     z-index: 10;
@@ -140,7 +133,12 @@
 
 #carousel2 {
     display: none;
-    width: 100%;
+    position: absolute;
+    right: 0;
+    height: inherit;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
 .carousel-main-text,
@@ -151,15 +149,9 @@
 .carousel-main-text {
     font-weight: 800;
 }
-
-.carousel-img-container {
-    width:50%;
-}
-
-.carousel-img {
-    object-fit: cover;
-    height: 270px;
-    width: 100%;
+.flex-center {
+    display: flex;
+    align-items: center;
 }
 
 .carousel-btn-flex {
