@@ -121,24 +121,54 @@
 }
 
 /**** Paintings ****/
-.wrap-container {
+.af-square-buttons-carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.af-square-buttons-carousel .slick-prev, .af-square-buttons-carousel .slick-prev:focus, .af-square-buttons-carousel .slick-next, .af-square-buttons-carousel .slick-next:focus {
+    background-color: rgba(0,0,0,0.1);
+}
+
+.af-square-buttons-carousel .slick-prev, .af-square-buttons-carousel .slick-next {
+    position: absolute;
+    padding: 0.625rem;
+    transition: background-color 100ms ease-in-out;
+    z-index: 5;
+    width: 40px;
+    height: 100%;
+}
+
+.af-square-buttons-carousel .slick-prev {
+    align-items: flex-start;
+    left: 0;
+}
+
+.af-square-buttons-carousel .slick-next {
+    right: 0;
+}
+
+#carousel-container {
+    z-index: 10;
     background: #d7d2cb;
     height: 270px;
 }
 
-
-#carousel1 {
-    z-index: 10;
-}
-
-#carousel2 {
+.carousel-img {
     display: none;
     position: absolute;
+    top: 0;
     right: 0;
     height: inherit;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+}
+
+#carousel-container>.slick-list,
+#carousel-container>.slick-list>.slick-track,
+.slick-slide>div {
+    height: inherit
 }
 
 .carousel-main-text,
@@ -150,6 +180,7 @@
     font-weight: 800;
 }
 .flex-center {
+    height: inherit;
     display: flex;
     align-items: center;
 }
@@ -528,15 +559,11 @@ a.float:hover {
         height: 700px;
     }
 
-    .wrap-container {
+    #carousel-container {
         height: 300px;
     }
     
     .carousel-img {
-        height: 300px;
-    }
-
-    #carousel2 {
         display: inline;
     }
 
@@ -560,15 +587,11 @@ a.float:hover {
         height: 700px;
     }
 
-    .wrap-container {
+    #carousel-container {
         height: 300px;
     }
 
     .carousel-img {
-        height: 300px;
-    }
-
-    #carousel2 {
         display: inline;
     }
 

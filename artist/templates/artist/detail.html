@@ -12,7 +12,7 @@
             <p id="artist-title" class="my-description-sub">{{artist.title}}</p>
         </div>
         <div class="col-12 px-0">
-            <p id="artist-description" class="my-description-detail mx-2">{{artist.description|linebreaksbr}}</p>
+            <p id="artist-description" class="my-description-detail mx-2">{{artist.description}}</p>
             <div id="artist-description-full" class="my-description-detail mx-2 d-none">
                 {{artist.description|linebreaksbr}}
             </div>
@@ -29,7 +29,7 @@
             {% for painting in paintings.object_list %}
             <div class="grid__item">
                 <a href="{% url 'shop:paintingDetail' painting.slug %}">
-                    <img src="{{painting.image.url}}">
+                    <img src="{{painting.thumbnail.url}}">
                     <div class="main-description">
                         <h5 class="my-painting-title">{{painting.name}}</h5>
                         <p class="my-description-sub right">{{painting.painter.name}}</p>
