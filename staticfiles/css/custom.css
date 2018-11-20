@@ -148,10 +148,36 @@
     right: 0;
 }
 
+.af-square-buttons-carousel .slick-dots {
+    background-color: transparent;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-align: end;
+    margin-bottom: 15px;
+    padding-right: 15px;
+}
+
+.slick-dots li button:before {
+    display: none;
+}
+
+.slick-dots .slick-active button {
+    background-color: #fff !important;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.25);
+}
+
+.slick-dots li button {
+    background-color: rgba(0,0,0,0.25) !important;
+    border-radius: 50%;
+}
+
 #carousel-container {
     z-index: 10;
     background: #d7d2cb;
-    height: 270px;
+    height: 300px;
+    margin-bottom: 0px !important;
 }
 
 .carousel-img {
@@ -163,6 +189,10 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+}
+
+.slick-arrow {
+    display: none !important;
 }
 
 #carousel-container>.slick-list,
@@ -499,7 +529,7 @@ a.float:hover {
     }
 
     .slick-slide,
-    .slick-slide div {
+    .slick-slide>div {
         height: 100%;
     }
 
@@ -546,6 +576,10 @@ a.float:hover {
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
+    .slick-arrow {
+        display: block !important;
+    }
+
     .grid__item,
     .grid__col-sizer {
         width: 32%
@@ -560,7 +594,7 @@ a.float:hover {
     }
 
     #carousel-container {
-        height: 300px;
+        margin-bottom: 0 !important;
     }
     
     .carousel-img {
@@ -569,6 +603,10 @@ a.float:hover {
 
     .carousel-btn-flex {
         justify-content: flex-start;
+    }
+
+    .slick-dots {
+        display: none !important;
     }
 }
 
@@ -585,17 +623,5 @@ a.float:hover {
 
     .image_container {
         height: 700px;
-    }
-
-    #carousel-container {
-        height: 300px;
-    }
-
-    .carousel-img {
-        display: inline;
-    }
-
-    .carousel-btn-flex {
-        justify-content: flex-start;
     }
 }
