@@ -32,7 +32,7 @@
         var prevScrollpos = window.pageYOffset;
         window.onscroll = function() {
             var currentScrollPos = window.pageYOffset;
-            if (prevScrollpos > currentScrollPos) { // 스크롤을 올렸을 떄
+            if (prevScrollpos > currentScrollPos || prevScrollpos < 0) { // 스크롤을 올렸을 떄
                 document.getElementById("navbar").style.top = "0";
             } else if (prevScrollpos < currentScrollPos) { // 내렸을 떄
                 document.getElementById("navbar").style.top = "-104.375px";
