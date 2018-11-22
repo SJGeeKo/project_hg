@@ -135,12 +135,32 @@
     //-------------------------------------//
     // init Infinte Scroll
 
-    $grid.infiniteScroll({
+    var infScroll = $grid.infiniteScroll({
         path: getPaintingsPath,
         append: '.grid__item',
         outlayer: msnry,
         status: '.page-load-status',
         history: false,
+    });
+
+    infScroll.on('append.infiniteScroll', function(response, path, items) {
+        //When imagesLoaded on progress
+        //hide the next populated masonry grid untill it's evenrything ok
+        $grid.imagesLoaded().progress(function() {
+            //layout Masonry after each image loads
+            $grid.addClass('are-images-unloaded');
+            console.log("Append Item... wait the fix before show");
+        });
+
+        //When images loaded done event window.addEventListener
+        $grid.imagesLoaded().done(function() {
+            console.log("Done loading...");
+
+            //Re-apply the layout masonry setting
+            msnry.layout(); //the magic
+            //Now it's fixed, so show the new (fixed) grid of masonry items
+            $grid.removeClass('are-images-unloaded');
+        });
     });
 
     //-------------------------------------//
