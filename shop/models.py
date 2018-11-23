@@ -9,7 +9,7 @@ class Painter(models.Model):
     birth = models.DateField()
     title = models.CharField(max_length=35, default='')
     description = models.TextField(blank=True)
-    image = models.ImageField(upload_to='user_profile', default="user_profile/profile_default.jpg")
+    image = models.ImageField(upload_to='user_profile', default="user_profile/profile_default_Y-6i6KZW.jpg")
 
     class Meta:
         ordering = ('name',)
