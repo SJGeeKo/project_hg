@@ -20,10 +20,14 @@
             </div>
             <div class="email-container d-none d-lg-block">
                 <h5>작가의 작품설명</h5>
-                <p id="painting-desc" class="my-description-detail">{{painting.description}}</p>
-                <div id="painting-desc-full" class="my-description-detail d-none">
-                    {{painting.description|linebreaksbr}}
-                </div>
+                {% if "{{painting.description}}" == "" %}
+                    <p class="my-description-detail" style="color: #878787;">입력된 작품설명이 없습니다.</p>
+                {% else %}
+                    <p id="painting-desc" class="my-description-detail">{{painting.description}}</p>
+                    <div id="painting-desc-full" class="my-description-detail d-none">
+                        {{painting.description|linebreaksbr}}
+                    </div>
+                {% endif %}
                 <hr style="margin-bottom: 15px !important;">
             </div>
             <div class="email-container">
@@ -36,10 +40,14 @@
                     <p class="my-description-bold mt-1">₩ {{painting.price|intcomma}}</p>
                     <hr>
                     <h5>작가의 작품설명</h5>
-                    <p id="painting-desc" class="my-description-detail">{{painting.description}}</p>
-                    <div id="painting-desc-full" class="my-description-detail d-none">
-                        {{painting.description|linebreaksbr}}
-                    </div>
+                    {% if "{{painting.description}}" == "" %}
+                        <p class="my-description-detail" style="color: #878787;">입력된 작품설명이 없습니다.</p>
+                    {% else %}
+                        <p id="painting-desc" class="my-description-detail">{{painting.description}}</p>
+                        <div id="painting-desc-full" class="my-description-detail d-none">
+                            {{painting.description|linebreaksbr}}
+                        </div>
+                    {% endif %}
                     <hr>
                 {% comment %} 작가 네임카드 {% endcomment %}
                     <div class="col-12 namecard text-center">
@@ -143,12 +151,22 @@
 
     //-------------------------------------//
     // Truncate at first and show all contents when a user clicks 'read more'
-    var paintingDesc = document.getElementById("painting-desc");
-    $clamp(paintingDesc, { clamp: 3, useNativeClamp: false, truncationHTML: "<a id='read_more' href='#'>더 보기</a>" });
+    $(document).ready(function () {
+        var paintingDesc = document.getElementById("painting-desc");
+        $clamp(paintingDesc, { clamp: 3, useNativeClamp: false, truncationHTML: "<a id='read_more' href='#'>더 보기</a>" });
+
+        var paintingDesc2 = document.getElementById("painting-desc-2");
+        $clamp(paintingDesc2, { clamp: 3, useNativeClamp: false, truncationHTML: "<a id='read_more2' href='#'>더 보기</a>" });
+    });
 
     $("#read_more").click(function () {
         paintingDesc.remove();
         $("#painting-desc-full").removeClass("d-none");
+    });
+
+    $("#read_more2").click(function () {
+        paintingDesc2.remove();
+        $("#painting-desc-full-2").removeClass("d-none");
     });
 
     //-------------------------------------//
