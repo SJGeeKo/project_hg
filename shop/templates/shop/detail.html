@@ -40,7 +40,7 @@
                     <p class="my-description-bold mt-1">₩ {{painting.price|intcomma}}</p>
                     <hr>
                     <h5>작가의 작품설명</h5>
-                    {% if "{{painting.description}}" == "" %}
+                    {% if painting.description == "" %}
                         <p class="my-description-detail" style="color: #878787;">입력된 작품설명이 없습니다.</p>
                     {% else %}
                         <p id="painting-desc-2" class="my-description-detail">{{painting.description}}</p>
