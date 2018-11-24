@@ -35,6 +35,12 @@ class Painting(models.Model):
         format='JPEG',
         options = {'quality': 60}
     )
+    thumbnail_s = ImageSpecField(
+        source = 'image',
+        processors = [Thumbnail(49, 49)],
+        format='JPEG',
+        options = {'quality': 60}
+    )
     available = models.BooleanField(default=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
@@ -49,3 +55,9 @@ class Painting(models.Model):
 class PaintingImg(models.Model):
     painting = models.ForeignKey(Painting, related_name='images', on_delete=models.CASCADE)
     image = models.ImageField(upload_to='paintingImgs', default="", blank=True)
+    thumbnail = ImageSpecField(
+        source = 'image',
+        processors = [Thumbnail(49, 49)],
+        format='JPEG',
+        options = {'quality': 60}
+    )

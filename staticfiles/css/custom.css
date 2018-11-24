@@ -1,3 +1,7 @@
+hr {
+    margin: 40px 0px !important;
+}
+
 .sticky-custom {
     position: fixed !important;
     position: sticky !important;
@@ -330,6 +334,19 @@ a.float:hover {
 }
 
 /**** Paintings Detail ****/
+.product-carousel-thumbs {
+    width: 50px;
+    position: relative;
+    top: 0;
+    z-index: 10;
+    padding-left: 5px;
+    float: right;
+}
+
+.detail-thumb-img {
+    margin-bottom: 5px;
+}
+
 .main-description h1 {
     margin-bottom: 0px;
     font-size: 22px;
@@ -343,24 +360,19 @@ a.float:hover {
     margin: 10px 0px 10px 0px !important;
 }
 
-.image_container .slick-list .slick-track .slick-slide div {
-    display: flex;
-    height: 700px;
-    justify-content: center;
-    align-items: center;
-}
-
 .detailImg {
     width: auto !important;
     max-width: 100% !important;
-    max-height: 100% !important;
+    max-height: 700px !important;
+    margin: 0 auto;
 }
 
 .image_container {
+    margin-bottom: 0px !important;
+}
+
+.image_container>.slick-list {
     background: #f8f9fa;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .namecard {
@@ -418,8 +430,7 @@ a.float:hover {
 }
 
 .email-container {
-    margin-top: 25px;
-    padding: 0px 10px 0px 10px;
+    padding: 25px 10px 0px 10px;
 }
 
 #id_receiver_email {
@@ -528,13 +539,12 @@ a.float:hover {
         margin-left: 10px;
     }
 
-    .slick-slide,
-    .slick-slide>div {
-        height: 100%;
+    .image_container {
+        padding-left: 0px;
     }
 
-    .image_container .slick-list .slick-track .slick-slide div {
-        height: auto;
+    .slick-dotted {
+        margin-bottom: 30px !important;
     }
 }
 
@@ -552,10 +562,6 @@ a.float:hover {
     .grid__gutter-sizer {
         width: 6%;
     }
-
-    .image_container {
-        height: 700px;
-    }
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -567,10 +573,6 @@ a.float:hover {
 
     .grid__gutter-sizer {
         width: 2%;
-    }
-
-    .image_container {
-        height: 700px;
     }
 }
 
@@ -587,10 +589,6 @@ a.float:hover {
 
     .grid__gutter-sizer {
         width: 2%;
-    }
-
-    .image_container {
-        height: 700px;
     }
 
     #carousel-container {
@@ -619,9 +617,5 @@ a.float:hover {
     
     .grid__gutter-sizer {
         width: 2%;
-    }
-
-    .image_container {
-        height: 700px;
     }
 }
