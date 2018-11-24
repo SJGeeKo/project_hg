@@ -20,7 +20,7 @@
             </div>
             <div class="email-container d-none d-lg-block">
                 <h5>작가의 작품설명</h5>
-                {% if "{{painting.description}}" == "" %}
+                {% if painting.description == "" %}
                     <p class="my-description-detail" style="color: #878787;">입력된 작품설명이 없습니다.</p>
                 {% else %}
                     <p id="painting-desc" class="my-description-detail">{{painting.description}}</p>
@@ -43,8 +43,8 @@
                     {% if "{{painting.description}}" == "" %}
                         <p class="my-description-detail" style="color: #878787;">입력된 작품설명이 없습니다.</p>
                     {% else %}
-                        <p id="painting-desc" class="my-description-detail">{{painting.description}}</p>
-                        <div id="painting-desc-full" class="my-description-detail d-none">
+                        <p id="painting-desc-2" class="my-description-detail">{{painting.description}}</p>
+                        <div id="painting-desc-full-2" class="my-description-detail d-none">
                             {{painting.description|linebreaksbr}}
                         </div>
                     {% endif %}
@@ -157,16 +157,16 @@
 
         var paintingDesc2 = document.getElementById("painting-desc-2");
         $clamp(paintingDesc2, { clamp: 3, useNativeClamp: false, truncationHTML: "<a id='read_more2' href='#'>더 보기</a>" });
-    });
 
-    $("#read_more").click(function () {
-        paintingDesc.remove();
-        $("#painting-desc-full").removeClass("d-none");
-    });
+        $("#read_more").click(function () {
+            paintingDesc.remove();
+            $("#painting-desc-full").removeClass("d-none");
+        });
 
-    $("#read_more2").click(function () {
-        paintingDesc2.remove();
-        $("#painting-desc-full-2").removeClass("d-none");
+        $("#read_more2").click(function () {
+            paintingDesc2.remove();
+            $("#painting-desc-full-2").removeClass("d-none");
+        });
     });
 
     //-------------------------------------//
