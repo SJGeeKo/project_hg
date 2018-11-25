@@ -366,19 +366,25 @@ a.float:hover {
     margin: 0 auto;
 }
 
-.image_container {
+.image_container,
+.product-carousel-thumbs {
     visibility: hidden;
     opacity: 0;
     transition: opacity 1s;
+}
+
+.image_container {
     margin-bottom: 0px !important;
 }
 
-.image_container.slick-initialized {
+.image_container.slick-initialized,
+.product-carousel-thumbs.slick-initialized {
     visibility: visible;
     opacity: 1;
 }
 
-.image_container .detailImg {
+.image_container .detailImg,
+.product-carousel-thumbs .detail-thumb-img {
     display: none;
 }
 
@@ -387,7 +393,8 @@ a.float:hover {
     visibility: hidden;
 }
 
-.image_container.slick-initialized .detailImg {
+.image_container.slick-initialized .detailImg,
+.product-carousel-thumbs.slick-initialized .detail-thumb-img {
     display: block;
     visibility: visible !important;
 }
