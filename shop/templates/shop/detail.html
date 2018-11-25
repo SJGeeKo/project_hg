@@ -102,7 +102,13 @@
 </div>
 {% endblock %}
 {% block js %}
-<script>    
+<script>
+    //-------------------------------------//
+    // display footer when it's ready
+    $(document).ready(function () {
+        $('#hagley-footer').removeClass('d-none');
+    });
+
     //-------------------------------------//
     // disable enter key in form
     $('#getBrochureForm').on('keyup keypress', function (e) {

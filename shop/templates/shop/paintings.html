@@ -2,7 +2,7 @@
 {% load staticfiles humanize i18n crispy_forms_tags %}
 {% block content %}
 <div id="carousel-container" class="af-square-buttons-carousel">
-    <div class="row" id="carousel-item" style="height: inherit;">
+    <div class="row d-none" id="carousel-item" style="height: inherit;">
         <div class="col-12 col-md-12 col-lg-6 col-xl-6 flex-center">
             <div>
                 <h1 class="carousel-main-text">{% trans "당신의 작품을 맡겨보세요" %}</h1>
@@ -16,7 +16,7 @@
         <div id="carousel-img" style="background-image:url({% static 'img/sip.jpg' %})" class="carousel-img d-none d-lg-inline">
         </div>
     </div>
-    <div class="row" id="carousel-item" style="height: inherit">
+    <div class="row d-none" id="carousel-item2" style="height: inherit">
         <div class="col-12 col-md-12 col-lg-6 col-xl-6 flex-center">
             <div>
                 <h1 class="carousel-main-text">{% trans "어디에서도 볼 수 없던 작품들" %}</h1>
@@ -83,7 +83,7 @@
             dots: true,
         });
     }).ready(function() {
-        $(".slick-slide>div").addClass("container");
+        $(".slick-slide>div").addClass("container").done($('#carousel-item, #carousel-item2').removeClass('d-none'));
     });
 
     //-------------------------------------//
@@ -109,6 +109,7 @@
         $grid.masonry('option', { itemSelector: '.grid__item' });
         var $items = $grid.find('.grid__item');
         $grid.masonry('appended', $items);
+        $('#hagley-footer').removeClass('d-none');
     });
 
     //-------------------------------------//
