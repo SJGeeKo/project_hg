@@ -12,7 +12,7 @@
                 <img src="{{detailImg.thumbnail.url}}" class="detail-thumb-img">
                 {% endfor %}
             </div>
-            <div class="image_container text-center d-none">
+            <div class="image_container text-center">
                 <img class="detailImg" src="{{painting.image.url}}" alt="{{painting.slug}}">
                 {% for detailImg in paintingImgs %}
                 <img class="detailImg" src="{{detailImg.image.url}}">
@@ -104,6 +104,25 @@
 {% block js %}
 <script>
     //-------------------------------------//
+    // show container before image is fully loaded
+    var img = document.createElement('img');
+
+    img.src = '{{painting.image.url}}'
+
+    var containerHeight = 0;
+
+    var poll = setInterval(function () {
+    if (img.naturalWidth) {
+        clearInterval(poll);
+        console.log(img.naturalWidth, img.naturalHeight);
+        containerHeight = 560/img.naturalWidth*img.naturalHeight
+        console.log(containerHeight);
+        }
+    }, 10);
+
+    img.onload = function () { console.log('Fully loaded'); }
+    
+    //-------------------------------------//
     // disable enter key in form
     $('#getBrochureForm').on('keyup keypress', function (e) {
         var keyCode = e.keyCode || e.which;
@@ -175,6 +194,7 @@
         arrows: false,
         dots: true,
         adaptiveHeight: true,
+        fade: true,
     });
 
     $('.product-carousel-thumbs').slick({
@@ -185,9 +205,5 @@
         focusOnSelect: true,
         vertical: true,
     })
-
-    $(document).ready(function () {
-        $('.image_container').removeClass('d-none');
-    });
 </script>
 {% endblock %}

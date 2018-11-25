@@ -185,7 +185,6 @@ hr {
 }
 
 .carousel-img {
-    display: none;
     position: absolute;
     top: 0;
     right: 0;
@@ -593,10 +592,6 @@ a.float:hover {
 
     #carousel-container {
         margin-bottom: 0 !important;
-    }
-    
-    .carousel-img {
-        display: inline;
     }
 
     .carousel-btn-flex {
