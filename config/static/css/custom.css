@@ -367,7 +367,29 @@ a.float:hover {
 }
 
 .image_container {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1s;
     margin-bottom: 0px !important;
+}
+
+.image_container.slick-initialized {
+    visibility: visible;
+    opacity: 1;
+}
+
+.image_container .detailImg {
+    display: none;
+}
+
+.image_container .detailImg:first-child {
+    display: block;
+    visibility: hidden;
+}
+
+.image_container.slick-initialized .detailImg {
+    display: block;
+    visibility: visible !important;
 }
 
 .image_container>.slick-list {
@@ -536,10 +558,6 @@ a.float:hover {
     .btn-flex {
         width: 90px;
         margin-left: 10px;
-    }
-
-    .image_container {
-        padding-left: 0px;
     }
 
     .slick-dotted {

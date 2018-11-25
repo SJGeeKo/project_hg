@@ -102,26 +102,7 @@
 </div>
 {% endblock %}
 {% block js %}
-<script>
-    //-------------------------------------//
-    // show container before image is fully loaded
-    var img = document.createElement('img');
-
-    img.src = '{{painting.image.url}}'
-
-    var containerHeight = 0;
-
-    var poll = setInterval(function () {
-    if (img.naturalWidth) {
-        clearInterval(poll);
-        console.log(img.naturalWidth, img.naturalHeight);
-        containerHeight = 560/img.naturalWidth*img.naturalHeight
-        console.log(containerHeight);
-        }
-    }, 10);
-
-    img.onload = function () { console.log('Fully loaded'); }
-    
+<script>    
     //-------------------------------------//
     // disable enter key in form
     $('#getBrochureForm').on('keyup keypress', function (e) {
