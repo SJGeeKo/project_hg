@@ -31,7 +31,7 @@
         </div>
     </div>
 </div>
-<div class="my-container">
+<div class="my-container invisible">
     <div class="container">
         <div class="grid are-images-unloaded">
             <div class="grid__col-sizer"></div>
@@ -110,6 +110,7 @@
         var $items = $grid.find('.grid__item');
         $grid.masonry('appended', $items);
         $('#hagley-footer').removeClass('d-none');
+        $('.my-container').removeClass('invisible');
     });
 
     //-------------------------------------//
