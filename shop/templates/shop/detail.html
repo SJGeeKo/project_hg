@@ -13,9 +13,9 @@
                 {% endfor %}
             </div>
             <div class="image_container text-center">
-                <img class="detailImg" src="{{painting.image.url}}" alt="{{painting.slug}}">
+                <img class="detailImg" src="{{painting.thumbnail_detail.url}}" alt="{{painting.slug}}">
                 {% for detailImg in paintingImgs %}
-                <img class="detailImg" src="{{detailImg.image.url}}">
+                <img class="detailImg" src="{{detailImg.thumbnail_detail.url}}">
                 {% endfor %}
             </div>
             <div class="email-container d-none d-lg-block">

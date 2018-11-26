@@ -41,6 +41,12 @@ class Painting(models.Model):
         format='JPEG',
         options = {'quality': 60}
     )
+    thumbnail_detail = ImageSpecField(
+        source = 'image',
+        processors = [Thumbnail(680)],
+        format='JPEG',
+        options = {'quality': 100}
+    )
     available = models.BooleanField(default=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
@@ -60,4 +66,10 @@ class PaintingImg(models.Model):
         processors = [Thumbnail(49, 49)],
         format='JPEG',
         options = {'quality': 60}
+    )
+    thumbnail_detail = ImageSpecField(
+        source = 'image',
+        processors = [Thumbnail(680)],
+        format='JPEG',
+        options = {'quality': 100}
     )
