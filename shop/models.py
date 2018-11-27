@@ -23,7 +23,7 @@ class Painter(models.Model):
         return '{}'.format(self.name)
 
 def painting_path(instance, filename):
-    return 'painting/{}/{}/{}'.format(instance.painter.slug, instance.name, filename)
+    return 'painting/{}/{}/{}'.format(instance.painter.slug, instance.slug, filename)
 
 class Painting(models.Model):
     name = models.CharField(max_length=250)
@@ -65,7 +65,7 @@ class Painting(models.Model):
         return '{}'.format(self.name)
 
 def paintingImg_path(instance, filename):
-    return 'painting/{}/{}/{}'.format(instance.painting.painter.slug, instance.painting.name, filename)
+    return 'painting/{}/{}/{}'.format(instance.painting.painter.slug, instance.painting.slug, filename)
 
 class PaintingImg(models.Model):
     painting = models.ForeignKey(Painting, related_name='images', on_delete=models.CASCADE)
