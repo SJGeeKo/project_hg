@@ -355,6 +355,21 @@ a.float:hover {
 }
 
 /**** Paintings Detail ****/
+figure {
+    margin: 0px !important;
+}
+
+.detail-search-btn-container {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+
+.detail-search-btn {
+    width: 50px !important;
+    height: 50px !important;
+}
+
 .product-carousel-thumbs {
     width: 50px;
     position: relative;
@@ -386,6 +401,11 @@ a.float:hover {
     max-width: 100% !important;
     max-height: 700px !important;
     margin: 0 auto;
+    transition: 0.3s;
+}
+
+.detailImg:hover {
+    opacity: 0.8;
 }
 
 .image_container,

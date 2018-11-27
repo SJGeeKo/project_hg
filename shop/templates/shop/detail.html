@@ -7,15 +7,15 @@
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-8">
             <div class="product-carousel-thumbs d-none d-lg-block">
-                <img src="{{painting.thumbnail_s.url}}" class="detail-thumb-img" alt="{{painting.slug}}">
+                <img src="{{painting.thumbnail_s.url}}" class="detail-thumb-img" alt="{{painting.slug}}-tn">
                 {% for detailImg in paintingImgs %}
-                <img src="{{detailImg.thumbnail.url}}" class="detail-thumb-img">
+                <img src="{{detailImg.thumbnail.url}}" class="detail-thumb-img" alt="{{painting.slug}}-tn-{{forloop.counter}}">
                 {% endfor %}
             </div>
             <div class="image_container text-center">
                 <img class="detailImg" src="{{painting.thumbnail_detail.url}}" alt="{{painting.slug}}">
                 {% for detailImg in paintingImgs %}
-                <img class="detailImg" src="{{detailImg.thumbnail_detail.url}}">
+                <img class="detailImg" src="{{detailImg.thumbnail_detail.url}}" alt="{{painting.slug}} - {{forloop.counter}}">
                 {% endfor %}
             </div>
             <div class="email-container d-none d-lg-block">
@@ -99,6 +99,72 @@
             </div>
         </div>
     </div>
+</div>
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
 {% endblock %}
 {% block js %}
@@ -192,5 +258,48 @@
         focusOnSelect: true,
         vertical: true,
     })
+
+    // Function which initiates PhotoSwipe with index
+    function openPhotoSwipe(index) {
+        var pswpElement = document.querySelectorAll('.pswp')[0];
+
+        // build items array
+        var items = [
+            {
+                src: '{{painting.image.url}}',
+                w: '{{painting.image.width}}',
+                h: '{{painting.image.height}}',
+            },
+            {% for detailImg in paintingImgs %}
+            {
+                src: '{{detailImg.image.url}}',
+                w: '{{detailImg.image.width}}',
+                h: '{{detailImg.image.height}}',
+            },
+            {% endfor %}
+        ];
+
+        // define options (if needed)
+        var options = {
+            // optionName: 'option value'
+            // for example:
+            index: index,
+            closeOnVerticalDrag: true,
+        }
+
+        // Initializes and opens PhotoSwipe
+        var gallery = new PhotoSwipe (pswpElement, PhotoSwipeUI_Default, items, options);
+        gallery.init();
+    }
+
+    // Display PhotoSwipe when image is clicked.
+    $("img[alt='{{painting.slug}}']").click(function() {
+        openPhotoSwipe(0);
+    });
+    {% for detailImg in paintingImgs %}
+    $("img[alt='{{detailImg.painting.slug}} - {{forloop.counter}}']").click(function() {
+        openPhotoSwipe(Number('{{forloop.counter}}')); // Error occurs when arg is string. Convert to Number.
+    });
+    {% endfor %}
 </script>
 {% endblock %}
