@@ -355,8 +355,45 @@ a.float:hover {
 }
 
 /**** Paintings Detail ****/
-figure {
-    margin: 0px !important;
+.slick-dots-detail {
+    position: absolute;
+    bottom: -35px;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.slick-dots-detail li {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 0 15px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.slick-dots-detail .slick-active button {
+    background-color: #EA562A !important;
+    border-radius: 50%;
+}
+
+.slick-dots-detail li button {
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 16px;
+    height: 16px;
+    padding: 5px;
+    cursor: pointer;
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: #eeeeee;
+    border-radius: 50%;
 }
 
 .detail-search-btn-container {
