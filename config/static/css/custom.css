@@ -705,6 +705,10 @@ a.float:hover {
     .slick-dots {
         display: none !important;
     }
+    
+    .slick-dots-detail {
+        display: none !important;
+    }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
