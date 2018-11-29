@@ -3,7 +3,7 @@
 {% load humanize %}
 {% load crispy_forms_tags %}
 {% block content %}
-<div class="my-container">
+<div class="my-container invisible">
     <div class="container">
         <div>
             <p class="text-center search-text"><b>"{{query}}"</b>에 대한 검색결과</p>
@@ -14,7 +14,7 @@
             {% for painting in paintings.object_list %}
             <div class="grid__item">
                 <a href="{% url 'shop:paintingDetail' painting.slug %}">
-                    <img src="{{painting.image.url}}">
+                    <img src="{{painting.thumbnail.url}}">
                     <div class="main-description">
                         <h5 class="my-painting-title">{{painting.name}}</h5>
                         <p class="my-description-sub right">{{painting.painter.name}}</p>
@@ -52,6 +52,8 @@
         $grid.masonry('option', { itemSelector: '.grid__item' });
         var $items = $grid.find('.grid__item');
         $grid.masonry('appended', $items);
+        $('#hagley-footer').removeClass('d-none');
+        $('.my-container').removeClass('invisible');
     });
 
     //-------------------------------------//
