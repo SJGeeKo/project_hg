@@ -357,7 +357,7 @@ a.float:hover {
 /**** Paintings Detail ****/
 .slick-dots-detail {
     position: absolute;
-    bottom: -35px;
+    bottom: -36px;
     display: block;
     width: 100%;
     padding: 0;
@@ -369,8 +369,8 @@ a.float:hover {
 .slick-dots-detail li {
     position: relative;
     display: inline-block;
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     margin: 0 15px;
     padding: 0;
     cursor: pointer;
@@ -385,8 +385,8 @@ a.float:hover {
     font-size: 0;
     line-height: 0;
     display: block;
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     padding: 5px;
     cursor: pointer;
     color: transparent;

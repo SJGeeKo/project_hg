@@ -12,7 +12,7 @@
                 <img src="{{detailImg.thumbnail.url}}" class="detail-thumb-img" alt="{{painting.slug}}-tn-{{forloop.counter}}">
                 {% endfor %}
             </div>
-            <div class="image_container text-center">
+            <div id="image_container" class="image_container text-center">
                 <img class="detailImg" src="{{painting.thumbnail_detail.url}}" alt="{{painting.slug}}">
                 {% for detailImg in paintingImgs %}
                 <img class="detailImg" src="{{detailImg.thumbnail_detail.url}}" alt="{{painting.slug}} - {{forloop.counter}}">
@@ -302,5 +302,53 @@
         openPhotoSwipe(Number('{{forloop.counter}}')); // Error occurs when arg is string. Convert to Number.
     });
     {% endfor %}
+
+    //-------------------------------------//
+    // Restrict number of slick-dots
+    function ClassDotsManager(slickElementId, numOfItems, numOfDots) {
+        this.listDotsElement = $("#" + slickElementId + " ul.slick-dots-detail li");
+        this.numOfDots = numOfDots <= numOfItems ? numOfDots : numOfItems;
+        this.minIndex = 0;
+        this.maxIndex = numOfDots - 1;
+        this.showDotsBetween = function (minIndex, maxIndex) {
+            this.listDotsElement.filter(function (index) {
+                $(this).css("display", index >= minIndex && index <= maxIndex ? "inline-block" : "none");
+            });
+        };
+        this.init = function () {
+            this.showDotsBetween(0, this.numOfDots - 1);
+        };
+        this.updateDots = function (newIndex) {
+            if (newIndex >= this.minIndex && newIndex <= this.maxIndex) {
+                // don't need to update
+            } else {
+                if (newIndex > this.maxIndex) {
+                    this.maxIndex = newIndex;
+                    this.minIndex = this.maxIndex - this.numOfDots + 1;
+                } else {
+                    this.minIndex = newIndex;
+                    this.maxIndex = this.minIndex + this.numOfDots - 1;
+                }
+                this.showDotsBetween(this.minIndex, this.maxIndex);
+            }
+        };
+    }
+
+    //-------------------------------------//
+    // get number of pictures on the slide
+    function getNumberOfItems() {
+        var numOfItems = Number({{paintingImgs.count}}) + 1;
+        return numOfItems;
+    };
+
+    //-------------------------------------//
+    // initiate
+    var numberOfItems = getNumberOfItems();
+    var dotsManager = new ClassDotsManager("image_container", numberOfItems, 6);
+    dotsManager.init();
+
+    $("#image_container").on("afterChange", function (slick, currentSlide) {
+        dotsManager.updateDots(currentSlide.currentSlide);
+    });
 </script>
 {% endblock %}
