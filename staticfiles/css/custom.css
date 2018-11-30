@@ -166,6 +166,9 @@ hr {
     visibility: hidden;
     opacity: 0;
     transition: opacity 1s;
+    background-color: #d7d2cb;
+    z-index: 10;
+    margin-bottom: 0px !important;
 }
 
 #carousel-container.slick-initialized {
@@ -184,6 +187,14 @@ hr {
     visibility: visible !important;
 }
 
+#slick-slide00 {
+    background: #197278;
+}
+
+#slick-slide01 {
+    background: #493B2E;
+}
+
 .slick-dots li button:before {
     display: none;
 }
@@ -199,11 +210,9 @@ hr {
     border-radius: 50%;
 }
 
-#carousel-container {
-    z-index: 10;
-    background: #d7d2cb;
-    height: 300px;
-    margin-bottom: 0px !important;
+#carousel-item, #carousel-item2 {
+    height: auto;
+    padding: 30px 0px;
 }
 
 .carousel-img {
@@ -223,12 +232,17 @@ hr {
 #carousel-container>.slick-list,
 #carousel-container>.slick-list>.slick-track,
 .slick-slide>div {
-    height: inherit
+    height: auto;
 }
 
 .carousel-main-text,
 .carousel-sub-text {
     word-break: keep-all;
+    color: #fff;
+}
+
+.carousel-sub-text {
+    font-size: 0.8rem;
 }
 
 .carousel-main-text {
@@ -681,6 +695,21 @@ a.float:hover {
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
+    #carousel-container {
+        height: 300px;
+    }
+
+    #carousel-container>.slick-list,
+    #carousel-container>.slick-list>.slick-track,
+    .slick-slide>div {
+        height: inherit;
+    }
+
+    #carousel-item, #carousel-item2 {
+        height: 300px;
+        padding: 0;
+    }
+    
     .slick-arrow {
         display: block !important;
     }
