@@ -248,16 +248,18 @@
         dots: true,
         dotsClass: 'slick-dots-detail',
         adaptiveHeight: true,
-        
+        infinite: true,
     });
 
     $('.product-carousel-thumbs').slick({
-        arrows: false,
         slidesToShow: 5,
         slidesToScroll: 1,
         asNavFor: '.image_container',
         focusOnSelect: true,
         vertical: true,
+        infinite: false,
+        swipe: false,
+        infinite: true,
     })
 
     // Function which initiates PhotoSwipe with index
@@ -317,21 +319,59 @@
         };
         this.init = function () {
             this.showDotsBetween(0, this.numOfDots - 1);
-        };
-        this.updateDots = function (newIndex) {
-            if (newIndex >= this.minIndex && newIndex <= this.maxIndex) {
-                // don't need to update
-            } else {
-                if (newIndex > this.maxIndex) {
-                    this.maxIndex = newIndex;
-                    this.minIndex = this.maxIndex - this.numOfDots + 1;
-                } else {
-                    this.minIndex = newIndex;
-                    this.maxIndex = this.minIndex + this.numOfDots - 1;
-                }
-                this.showDotsBetween(this.minIndex, this.maxIndex);
+            if (numOfItems > this.numOfDots) {
+                $('#slick-slide-control0'+this.maxIndex).css({"width": "8px", "height": "8px"});
+                $('#slick-slide-control0'+this.maxIndex).parent().css({"width": "8px", "height": "8px"});
             }
         };
+        this.updateDots = function (currentIndex, newIndex) {
+            if (newIndex > currentIndex) {
+                if (newIndex-currentIndex == numOfItems-1) {
+                    this.maxIndex = numOfItems-1;
+                    this.minIndex = numOfItems-numOfDots;
+                } else if (newIndex <= 2 || newIndex >= numOfItems - 2) {
+                    // don't need to update
+                } else {
+                    this.maxIndex += newIndex-currentIndex;
+                    this.minIndex += newIndex-currentIndex;
+                }
+            } else if (newIndex < currentIndex) {
+                if (currentIndex-newIndex == numOfItems-1) {
+                    this.minIndex = 0;
+                    this.maxIndex = numOfDots-1;
+                } else if (newIndex <= 1 || newIndex >= numOfItems - 3) {
+                    // dont't need to update
+                } else {
+                    this.minIndex -= currentIndex-newIndex;
+                    this.maxIndex -= currentIndex-newIndex;
+                }
+            } else {
+                // don't need to update
+            }
+            
+            if (numOfItems > this.numOfDots) {
+                if (this.minIndex != 0) {
+                    // change first dot's size
+                    $('#slick-slide-control0'+this.minIndex).css({"width": "8px", "height": "8px"});
+                    $('#slick-slide-control0'+this.minIndex).parent().css({"width": "8px", "height": "8px"});
+                    for(i=1; i<4; i++) {
+                        $('#slick-slide-control0'+(this.minIndex+i)).css({"width": "14px", "height": "14px"});
+                        $('#slick-slide-control0'+(this.minIndex+i)).parent().css({"width": "14px", "height": "14px"});
+                    }
+                }
+                if (this.maxIndex != numOfItems-1) {
+                    // change last dot's size
+                    $('#slick-slide-control0'+this.maxIndex).css({"width": "8px", "height": "8px"});
+                    $('#slick-slide-control0'+this.maxIndex).parent().css({"width": "8px", "height": "8px"});
+                    for(i=1; i<4; i++) {
+                        $('#slick-slide-control0'+(this.maxIndex-i)).css({"width": "14px", "height": "14px"});
+                        $('#slick-slide-control0'+(this.maxIndex-i)).parent().css({"width": "14px", "height": "14px"});
+                    }
+                }
+            }
+
+            this.showDotsBetween(this.minIndex, this.maxIndex);
+        }
     }
 
     //-------------------------------------//
@@ -344,11 +384,24 @@
     //-------------------------------------//
     // initiate
     var numberOfItems = getNumberOfItems();
-    var dotsManager = new ClassDotsManager("image_container", numberOfItems, 6);
+    var dotsManager = new ClassDotsManager("image_container", numberOfItems, 5);
     dotsManager.init();
 
-    $("#image_container").on("afterChange", function (slick, currentSlide) {
-        dotsManager.updateDots(currentSlide.currentSlide);
+    var beforeIndex = 0
+
+    $("#image_container").on("beforeChange", function (slick, currentSlide, nextSlide) {
+        beforeIndex = currentSlide.currentSlide;
     });
+
+    $("#image_container").on("afterChange", function (slick, currentSlide) {
+        dotsManager.updateDots(beforeIndex, currentSlide.currentSlide);
+    });
+
+    // Disable slick-dots button
+    $('li button').attr('disabled', 'disabled');
+
+    if ($('.product-carousel-thumbs > button').length == 0) {
+        $('.product-carousel-thumbs .slick-list').css('margin-top', '0px');
+    }
 </script>
 {% endblock %}
