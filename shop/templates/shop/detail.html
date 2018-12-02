@@ -260,6 +260,8 @@
         infinite: false,
         swipe: false,
         infinite: true,
+        prevArrow: '<button type="button" class="slick-prev-v"><i class="fas fa-chevron-circle-up" style="font-size: 14px"></i></button>',
+        nextArrow: '<button type="button" class="slick-next-v"><i class="fas fa-chevron-circle-down" style="font-size: 14px"></i></button>',
     })
 
     // Function which initiates PhotoSwipe with index
@@ -403,8 +405,5 @@
     if ($('.product-carousel-thumbs > button').length == 0) {
         $('.product-carousel-thumbs .slick-list').css('margin-top', '0px');
     }
-
-    $('.slick-prev').toggleClass('slick-prev slick-prev-v');
-    $('.slick-next').toggleClass('slick-next slick-next-v');
 </script>
 {% endblock %}

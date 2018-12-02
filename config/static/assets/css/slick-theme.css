@@ -64,7 +64,6 @@
     color: #212529;
     border: none;
     outline: none;
-    background: #eeeeee;
 }
 .slick-prev:hover,
 .slick-prev:focus,
@@ -82,7 +81,6 @@
 {
     color: #212529;
     outline: none;
-    background: #eeeeee;
 }
 .slick-prev:hover:before,
 .slick-prev:focus:before,
@@ -145,10 +143,6 @@
 {
     content: '→';
 }
-.slick-prev-v:before
-{
-    content: '↑';
-}
 
 .slick-next
 {
@@ -170,10 +164,6 @@
 [dir='rtl'] .slick-next:before
 {
     content: '←';
-}
-.slick-next-v:before
-{
-    content: '↓';
 }
 
 
