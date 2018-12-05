@@ -212,7 +212,7 @@ hr {
 
 #carousel-item, #carousel-item2 {
     height: auto;
-    padding: 30px 0px;
+    padding: 40px 0px;
 }
 
 .carousel-img {
@@ -242,7 +242,7 @@ hr {
 }
 
 .carousel-sub-text {
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 
 .carousel-main-text {
