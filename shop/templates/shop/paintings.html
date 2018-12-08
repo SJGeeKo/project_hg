@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles humanize i18n crispy_forms_tags %}
-{% block title %}
+{% block ogtitle %}
     헤이글리(Hagley)
 {% endblock %}
 {% block metadescription %}
@@ -8,6 +8,9 @@
 {% endblock %}
 {% block metaimage %}
     http://www.hagley.co.kr/static/img/hagley-metaimage.jpg
+{% endblock %}
+{% block title %}
+    헤이글리 - 당신의 작품을 해외에 판매해보세요.
 {% endblock %}
 {% block content %}
 <div id="carousel-container" class="af-square-buttons-carousel">

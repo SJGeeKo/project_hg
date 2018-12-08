@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% load humanize %}
+{% block title %}
+    {{paintings.0.painter.name}} - 작가 상세정보 | Hagley
+{% endblock %}
 {% block content %}
 {% with paintings.0.painter as artist %}
 <div class="my-container-2">

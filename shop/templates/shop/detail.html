@@ -2,6 +2,9 @@
 {% load staticfiles %}
 {% load humanize %}
 {% load crispy_forms_tags %}
+{% block title %}
+    {{painting.name}} by {{painting.painter.name}} | 헤이글리
+{% endblock %}
 {% block content %}
 <div class="container margin-top-20">
     <div class="row">
