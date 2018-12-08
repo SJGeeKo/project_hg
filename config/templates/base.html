@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="{% block metadescription %}{% endblock %}">
+    <meta property="og:title" content="{% block title %}{% endblock %}">
+    <meta property="og:description" content="{% block metadescription %}{% endblock %}">
+    <meta property="og:image" content="{% block metaimage %}{% endblock %}">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130116044-1"></script>
     <script>
@@ -23,7 +25,6 @@
     <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/photoswipe.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/default-skin/default-skin.css' %}"> 
-    <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
     {% include "navbar.html" %}
