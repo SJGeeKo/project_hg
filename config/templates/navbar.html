@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load staticfiles i18n %}
 <nav class="navbar navbar-light my-navbar" id="navbar">
     <div class="container">
 
@@ -15,7 +15,7 @@
         <form id="search-form-xs" action="{% url 'search:searchResult' %}" method="GET">
             {% csrf_token %}
             <div class="form-inline my-search-bar">
-                <input type="text" class="my-search-bar-input" placeholder="작가 및 작품명 검색" name="q">
+                <input type="text" class="my-search-bar-input" placeholder="{% trans 'Search(Art/Artist)' %}" name="q">
                 <button class="my-search-button" type="submit">
                     <i class="fa fa-search" style="color: #EA562A;"></i>
                 </button>
@@ -26,7 +26,7 @@
         <form id="search-form-lg" action="{% url 'search:searchResult' %}" method="GET">
                 {% csrf_token %}
                 <div class="form-inline my-search-bar">
-                    <input type="text" class="my-search-bar-input" placeholder="작가 및 작품명 검색" name="q">
+                    <input type="text" class="my-search-bar-input" placeholder="{% trans 'Search(Art/Artist)' %}" name="q">
                     <button class="my-search-button" type="submit">
                         <i class="fa fa-search" style="color: #EA562A;"></i>
                     </button>
