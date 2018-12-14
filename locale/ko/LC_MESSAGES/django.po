@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-12 16:08+0900\n"
+"POT-Creation-Date: 2018-12-14 11:55+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,6 +29,22 @@ msgstr ""
 #: config/templates/navbar.html:21 config/templates/navbar.html:33
 msgid "Search(Art/Artist)"
 msgstr "작가 및 작품명 검색"
+
+#: mail/forms.py:5
+msgid "Your name"
+msgstr "이름"
+
+#: mail/forms.py:6
+msgid "Your email address"
+msgstr "연락처"
+
+#: mail/forms.py:7
+msgid "Please provide details of your inquiry below"
+msgstr "문의 내용"
+
+#: mail/forms.py:11
+msgid "Email"
+msgstr "연락처 입력"
 
 #: shop/templates/shop/paintings.html:20
 msgid "Global marketplace"
@@ -58,6 +74,14 @@ msgstr ""
 #: shop/templates/shop/paintings.html:36
 msgid "Shop now"
 msgstr "구매 문의하기"
+
+#: shop/templates/shop/paintings.html:69
+msgid "Inquiry"
+msgstr "문의"
+
+#: shop/templates/shop/paintings.html:78
+msgid "Submit"
+msgstr "문의하기"
 
 #: venv/lib/python3.7/site-packages/crispy_forms/tests/test_form_helper.py:140
 #: venv/lib/python3.7/site-packages/crispy_forms/tests/test_form_helper.py:150
@@ -1235,6 +1259,21 @@ msgstr ""
 #: venv/lib/python3.7/site-packages/imagekit/admin.py:10
 msgid "Thumbnail"
 msgstr ""
+
+#~ msgid "문의"
+#~ msgstr "Inquiry"
+
+#~ msgid "문의하기"
+#~ msgstr "Submit"
+
+#~ msgid "이름"
+#~ msgstr "Your name"
+
+#~ msgid "연락처"
+#~ msgstr "Your email address"
+
+#~ msgid "문의내용"
+#~ msgstr "Please provide details of your inquiry below"
 
 #~ msgid "Search"
 #~ msgstr "작가 및 작품명 검색"
