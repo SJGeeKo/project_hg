@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Painting, PaintingImg
 from mail.forms import ContactForm, SendBrochureForm
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
+from django.utils import translation
 
 # Create your views here.
 def allPaintings(request):

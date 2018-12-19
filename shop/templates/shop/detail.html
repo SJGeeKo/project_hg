@@ -2,8 +2,9 @@
 {% load staticfiles %}
 {% load humanize %}
 {% load crispy_forms_tags %}
+{% load i18n %}
 {% block title %}
-    {{painting.name}} by {{painting.painter.name}} | 헤이글리
+    {{painting.name}} by {{painting.painter.name}} | Hagley
 {% endblock %}
 {% block content %}
 <div class="container margin-top-20">
@@ -22,9 +23,9 @@
                 {% endfor %}
             </div>
             <div class="email-container d-none d-lg-block">
-                <h5>작가의 작품설명</h5>
+                <h5>{% trans 'Art Description' %}</h5>
                 {% if painting.description == "" %}
-                    <p class="my-description-detail" style="color: #878787;">입력된 작품설명이 없습니다.</p>
+                    <p class="my-description-detail" style="color: #878787;">{% trans 'No description to show.' %}</p>
                 {% else %}
                     <p id="painting-desc" class="my-description-detail">{{painting.description}}</p>
                     <div id="painting-desc-full" class="my-description-detail d-none">
@@ -42,9 +43,9 @@
                     <p class="my-description-sub">{{painting.width}}cm x {{painting.height}}cm</p>
                     <p class="my-description-bold mt-1">₩ {{painting.price|intcomma}}</p>
                     <hr>
-                    <h5>작가의 작품설명</h5>
+                    <h5>{% trans 'Art Description' %}</h5>
                     {% if painting.description == "" %}
-                        <p class="my-description-detail" style="color: #878787;">입력된 작품설명이 없습니다.</p>
+                        <p class="my-description-detail" style="color: #878787;">{% trans 'No description to show.' %}</p>
                     {% else %}
                         <p id="painting-desc-2" class="my-description-detail">{{painting.description}}</p>
                         <div id="painting-desc-full-2" class="my-description-detail d-none">
@@ -60,21 +61,20 @@
                             </div>
                             <p class="my-description-detail">{{painting.painter}}</p>
                             <p class="my-description-sub">{{painting.painter.title}}</p>
-                            <button class="my-btn-lg mt-3">이 작가의 다른 작품 감상하기</button>
+                            <button class="my-btn-lg mt-3">{% trans 'More by' %} {{painting.painter.name}}</button>
                         </a>
                     </div>
                     <hr>
                 </div>
-                <h5>작품과 작가에 대해 더 알고 싶으신가요?</h5>
-                <p class="my-description-detail"><strong>'{{painting.name}}'</strong>에 담긴 이야기와 작가 소개를 받아보세요!<br>
-                    아래에 이메일 주소를 입력해주세요.<br>
-                    <strong>자세한 작품 해설</strong>, <strong>작가 이력</strong>, <strong>구매 방법</strong> 등을 보내드립니다.</p>
+                <h5>{% trans 'Want to know more about this artwork?' %}</h5>
+                    {% trans 'Enter your email address below.'%}<br>
+                    {% trans 'We will send you a detailed <strong>description of the artwork</strong>, <strong>artist</strong> and <strong>purchasing method.</strong>' %}</p>
                 <div class="getBrochure" style="margin: 20px 0">
                     <form id="getBrochureForm" action="" method="POST">
                         {% csrf_token %}
                         {{brochure_form|crispy}}
                     </form>
-                    <button id="getBrochureBtn" class="my-btn btn-flex">받아보기</button>
+                    <button id="getBrochureBtn" class="my-btn btn-flex">{% trans 'Send' %}</button>
                 </div>
             </div>
         </div>
@@ -95,7 +95,7 @@
                         </div>
                         <p class="my-description-detail">{{painting.painter}}</p>
                         <p class="my-description-sub">{{painting.painter.title}}</p>
-                        <button class="my-btn-lg mt-3">이 작가의 다른 작품 감상하기</button>
+                        <button class="my-btn-lg mt-3">{% trans 'More by' %} {{painting.painter.name}}</button>
                     </a>
                 </div>
                 <hr class="mb-0">
@@ -228,10 +228,10 @@
     // Truncate at first and show all contents when a user clicks 'read more'
     $(document).ready(function () {
         var paintingDesc = document.getElementById("painting-desc");
-        $clamp(paintingDesc, { clamp: 3, useNativeClamp: false, truncationHTML: "<a id='read_more' href='#'>더 보기</a>" });
+        $clamp(paintingDesc, { clamp: 3, useNativeClamp: false, truncationHTML: "<a id='read_more' href='#'>{% trans 'see more' %}</a>" });
 
         var paintingDesc2 = document.getElementById("painting-desc-2");
-        $clamp(paintingDesc2, { clamp: 3, useNativeClamp: false, truncationHTML: "<a id='read_more2' href='#'>더 보기</a>" });
+        $clamp(paintingDesc2, { clamp: 3, useNativeClamp: false, truncationHTML: "<a id='read_more2' href='#'>{% trans 'see more' %}</a>" });
 
         $("#read_more").click(function () {
             paintingDesc.remove();

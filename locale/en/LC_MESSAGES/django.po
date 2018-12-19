@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-14 11:56+0900\n"
+"POT-Creation-Date: 2018-12-18 11:06+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: artist/templates/artist/detail.html:28
+msgid "Artworks"
+msgstr ""
+
+#: artist/templates/artist/detail.html:147 shop/templates/shop/detail.html:235
+#: shop/templates/shop/detail.html:238
+msgid "see more"
+msgstr ""
 
 #: config/settings/base.py:153
 msgid "Korean"
@@ -28,58 +37,94 @@ msgstr ""
 
 #: config/templates/navbar.html:21 config/templates/navbar.html:33
 msgid "Search(Art/Artist)"
-msgstr "Search(Art/Artist)"
+msgstr ""
 
 #: mail/forms.py:5
 msgid "Your name"
-msgstr "Your name"
+msgstr ""
 
 #: mail/forms.py:6
 msgid "Your email address"
-msgstr "Your email address"
+msgstr ""
 
 #: mail/forms.py:7
 msgid "Please provide details of your inquiry below"
-msgstr "Please provide details of your inquiry below"
+msgstr ""
 
 #: mail/forms.py:11
 msgid "Email"
-msgstr "Email"
+msgstr ""
+
+#: shop/templates/shop/detail.html:26 shop/templates/shop/detail.html:47
+msgid "Art Description"
+msgstr ""
+
+#: shop/templates/shop/detail.html:28 shop/templates/shop/detail.html:49
+msgid "No description to show."
+msgstr ""
+
+#: shop/templates/shop/detail.html:66 shop/templates/shop/detail.html:102
+msgid "More by"
+msgstr ""
+
+#: shop/templates/shop/detail.html:71
+msgid "Want to know more about this artwork?"
+msgstr ""
+
+#: shop/templates/shop/detail.html:72
+msgid "Enter your email address below."
+msgstr ""
+
+#: shop/templates/shop/detail.html:73
+msgid ""
+"We will send you a detailed <strong>description of the artwork</strong>, "
+"<strong>artist</strong> and <strong>purchasing method.</strong>"
+msgstr ""
+
+#: shop/templates/shop/detail.html:79
+msgid "Send"
+msgstr ""
 
 #: shop/templates/shop/paintings.html:20
 msgid "Global marketplace"
-msgstr "Global marketplace"
+msgstr ""
 
 #: shop/templates/shop/paintings.html:21
 msgid "One click is enough! Introduce your artwork to global art marketplaces."
 msgstr ""
-"One click is enough! Introduce your artwork to global art marketplaces."
 
 #: shop/templates/shop/paintings.html:23
 msgid "Sell now"
-msgstr "Sell now"
+msgstr ""
 
 #: shop/templates/shop/paintings.html:33
 msgid "Unique art"
-msgstr "Unique art"
+msgstr ""
 
 #: shop/templates/shop/paintings.html:34
 msgid ""
 "Looking for something unusual? Explore Korean local art scene on Hagley."
 msgstr ""
-"Looking for something unusual? Explore Korean local art scene on Hagley."
 
 #: shop/templates/shop/paintings.html:36
 msgid "Shop now"
-msgstr "Shop now"
+msgstr ""
 
 #: shop/templates/shop/paintings.html:69
 msgid "Inquiry"
-msgstr "Inquiry"
+msgstr ""
 
-#: shop/templates/shop/paintings.html:78
+#: shop/templates/shop/paintings.html:78 shop/templates/shop/sellfab.html:27
 msgid "Submit"
-msgstr "Submit"
+msgstr ""
+
+#: shop/templates/shop/sellfab.html:8
+msgid "Want to sell on Hagley?"
+msgstr ""
+
+#: shop/templates/shop/sellfab.html:18
+msgid "Sales Inquiry"
+msgstr ""
 
 #: venv/lib/python3.7/site-packages/crispy_forms/tests/test_form_helper.py:140
 #: venv/lib/python3.7/site-packages/crispy_forms/tests/test_form_helper.py:150

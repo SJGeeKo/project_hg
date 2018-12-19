@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-14 11:55+0900\n"
+"POT-Creation-Date: 2018-12-18 11:06+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: artist/templates/artist/detail.html:28
+msgid "Artworks"
+msgstr "작품 둘러보기"
+
+#: artist/templates/artist/detail.html:147 shop/templates/shop/detail.html:235
+#: shop/templates/shop/detail.html:238
+msgid "see more"
+msgstr "더 보기"
 
 #: config/settings/base.py:153
 msgid "Korean"
@@ -45,6 +54,38 @@ msgstr "문의 내용"
 #: mail/forms.py:11
 msgid "Email"
 msgstr "연락처 입력"
+
+#: shop/templates/shop/detail.html:26 shop/templates/shop/detail.html:47
+msgid "Art Description"
+msgstr "작가의 작품설명"
+
+#: shop/templates/shop/detail.html:28 shop/templates/shop/detail.html:49
+msgid "No description to show."
+msgstr "입력된 작품설명이 없습니다."
+
+#: shop/templates/shop/detail.html:66 shop/templates/shop/detail.html:102
+msgid "More by"
+msgstr ""
+
+#: shop/templates/shop/detail.html:71
+msgid "Want to know more about this artwork?"
+msgstr "작품과 작가에 대해 더 알고 싶으신가요?"
+
+#: shop/templates/shop/detail.html:72
+msgid "Enter your email address below."
+msgstr "아래에 이메일 주소를 입력해주세요."
+
+#: shop/templates/shop/detail.html:73
+msgid ""
+"We will send you a detailed <strong>description of the artwork</strong>, "
+"<strong>artist</strong> and <strong>purchasing method.</strong>"
+msgstr ""
+"<strong>자세한 작품 해설</strong>, <strong>작가 이력</strong>, <strong>구매 "
+"방법</strong> 등을 보내드립니다."
+
+#: shop/templates/shop/detail.html:79
+msgid "Send"
+msgstr "받아보기"
 
 #: shop/templates/shop/paintings.html:20
 msgid "Global marketplace"
@@ -79,9 +120,17 @@ msgstr "구매 문의하기"
 msgid "Inquiry"
 msgstr "문의"
 
-#: shop/templates/shop/paintings.html:78
+#: shop/templates/shop/paintings.html:78 shop/templates/shop/sellfab.html:27
 msgid "Submit"
 msgstr "문의하기"
+
+#: shop/templates/shop/sellfab.html:8
+msgid "Want to sell on Hagley?"
+msgstr "판매하고 싶은 작품이 있으신가요?"
+
+#: shop/templates/shop/sellfab.html:18
+msgid "Sales Inquiry"
+msgstr "문의"
 
 #: venv/lib/python3.7/site-packages/crispy_forms/tests/test_form_helper.py:140
 #: venv/lib/python3.7/site-packages/crispy_forms/tests/test_form_helper.py:150

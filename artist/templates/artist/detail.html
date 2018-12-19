@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load humanize %}
+{% load humanize i18n %}
 {% block title %}
     {{paintings.0.painter.name}} - 작가 상세정보 | Hagley
 {% endblock %}
@@ -25,7 +25,7 @@
 </div>
 <div class="my-container">
     <div class="container">
-        <h2 class="my-sub-title ml-2">작품 둘러보기</h2>
+        <h2 class="my-sub-title ml-2">{% trans 'Artworks' %}</h2>
         <div class="grid are-images-unloaded">
             <div class="grid__col-sizer"></div>
             <div class="grid__gutter-sizer"></div>
@@ -144,7 +144,7 @@
     };
 
     var artistDescription = document.getElementById("artist-description");
-    $clamp(artistDescription, {clamp: 3, useNativeClamp: false, truncationHTML: "<a id='read_more' href='#'>더 보기</a>"});
+    $clamp(artistDescription, {clamp: 3, useNativeClamp: false, truncationHTML: "<a id='read_more' href='#'>{% trans 'see more' %}</a>"});
 
     $("#read_more").click(function(){
         artistDescription.remove();
