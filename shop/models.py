@@ -22,6 +22,13 @@ class Painter(models.Model):
     def __str__(self):
         return '{}'.format(self.name)
 
+
+class PainterEng(models.Model):
+    painter = models.ForeignKey(Painter, on_delete=models.CASCADE)
+    name = models.CharField(max_length=250)
+    title = models.CharField(max_length=35)
+    description = models.TextField(blank=True)
+
 def painting_path(instance, filename):
     return 'painting/{}/{}/{}'.format(instance.painter.slug, instance.slug, filename)
 
@@ -63,6 +70,15 @@ class Painting(models.Model):
 
     def __str__(self):
         return '{}'.format(self.name)
+
+
+class PaintingEng(models.Model):
+    painting = models.ForeignKey(Painting, on_delete=models.CASCADE)
+    name = models.CharField(max_length=250)
+    material = models.CharField(max_length = 250, default='Oil')
+    description = models.TextField(blank=True)
+    price = models.IntegerField(default=100000)
+
 
 def paintingImg_path(instance, filename):
     return 'painting/{}/{}/{}'.format(instance.painting.painter.slug, instance.painting.slug, filename)

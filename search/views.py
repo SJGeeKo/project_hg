@@ -12,7 +12,8 @@ def searchResult(request):
     query = None
     if 'q' in request.GET:
         query = request.GET.get('q')
-        paintings_list = Painting.objects.all().filter(Q(name__contains=query) | Q(description__contains=query) | Q(painter__name__contains=query))
+        paintings_list = Painting.objects.all().filter(Q(name__contains=query) | Q(description__contains=query) | Q(painter__name__contains=query) | 
+        Q(paintingeng__name__contains=query) | Q(paintingeng__description__contains=query) | Q(painter__paintereng__name__contains=query))
     if 'csrfmiddlewaretoken' in request.GET:
         csrfToken = str(request.GET.get('csrfmiddlewaretoken'))
     '''

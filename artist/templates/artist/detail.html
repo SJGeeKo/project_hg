@@ -4,24 +4,38 @@
     {{paintings.0.painter.name}} - 작가 상세정보 | Hagley
 {% endblock %}
 {% block content %}
-{% with paintings.0.painter as artist %}
+{% get_current_language as LANGUAGE_CODE %}
+<!-- Current language: {{ LANGUAGE_CODE }}-->
+{% with artist=paintings.0.painter artist_eng=paintings.0.painter.paintereng_set.all.0 %}
 <div class="my-container-2">
     <div class="container">
         <div class="col-12 text-center namecard-lg">
             <div class="mx-auto">
                 <img class="profile_img rounded-circle" src="{{artist.image.url}}" alt="{{artist.name}}">
             </div>
+            {% if LANGUAGE_CODE == 'ko' %}
             <h1>{{artist.name}}</h1>
             <p id="artist-title" class="my-description-sub">{{artist.title}}</p>
+            {% else %}
+            <h1>{{artist_eng.name}}</h1>
+            <p id="artist-title" class="my-description-sub">{{artist_eng.title}}</p>
+            {% endif %}
         </div>
         <div class="col-12 px-0">
+            {% if LANGUAGE_CODE == 'ko' %}
             <p id="artist-description" class="my-description-detail mx-2">{{artist.description}}</p>
             <div id="artist-description-full" class="my-description-detail mx-2 d-none">
                 {{artist.description|linebreaksbr}}
             </div>
+            {% else %}
+            <p id="artist-description" class="my-description-detail mx-2">{{artist_eng.description}}</p>
+            <div id="artist-description-full" class="my-description-detail mx-2 d-none">
+                {{artist_eng.description|linebreaksbr}}
+            </div>
+            {% endif %}
         </div>
     </div>
-    {% endwith %}
+{% endwith %}
 </div>
 <div class="my-container">
     <div class="container">
@@ -34,9 +48,15 @@
                 <a href="{% url 'shop:paintingDetail' painting.slug %}">
                     <img src="{{painting.thumbnail.url}}">
                     <div class="main-description">
+                        {% if LANGUAGE_CODE == 'ko' %}
                         <h5 class="my-painting-title">{{painting.name}}</h5>
                         <p class="my-description-sub right">{{painting.painter.name}}</p>
                         <p class="my-description-bold left">₩ {{painting.price|intcomma}}</p>
+                        {% else %}
+                        <h5 class="my-painting-title">{{painting.paintingeng_set.all.0.name}}</h5>
+                        <p class="my-description-sub right">{{painting.painter.paintereng_set.all.0.name}}</p>
+                        <p class="my-description-bold left">$ {{painting.paintingeng_set.all.0.price|intcomma}}</p>
+                        {% endif %}
                     </div>
                 </a>
             </div>
