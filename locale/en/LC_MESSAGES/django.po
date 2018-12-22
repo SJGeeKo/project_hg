@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-20 11:33+0900\n"
+"POT-Creation-Date: 2018-12-23 06:14+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,8 +22,8 @@ msgstr ""
 msgid "Artworks"
 msgstr ""
 
-#: artist/templates/artist/detail.html:167 shop/templates/shop/detail.html:279
-#: shop/templates/shop/detail.html:282
+#: artist/templates/artist/detail.html:167 shop/templates/shop/detail.html:283
+#: shop/templates/shop/detail.html:286
 msgid "see more"
 msgstr ""
 
@@ -55,33 +55,33 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: shop/templates/shop/detail.html:28 shop/templates/shop/detail.html:64
+#: shop/templates/shop/detail.html:28 shop/templates/shop/detail.html:68
 msgid "Art Description"
 msgstr ""
 
-#: shop/templates/shop/detail.html:30 shop/templates/shop/detail.html:66
+#: shop/templates/shop/detail.html:70
 msgid "No description to show."
 msgstr ""
 
-#: shop/templates/shop/detail.html:101
+#: shop/templates/shop/detail.html:105
 msgid "Want to know more about this artwork?"
 msgstr ""
 
-#: shop/templates/shop/detail.html:102
+#: shop/templates/shop/detail.html:106
 msgid "Enter your email address below."
 msgstr ""
 
-#: shop/templates/shop/detail.html:103
+#: shop/templates/shop/detail.html:107
 msgid ""
 "We will send you a detailed <strong>description of the artwork</strong>, "
 "<strong>artist</strong> and <strong>purchasing method.</strong>"
 msgstr ""
 
-#: shop/templates/shop/detail.html:109
+#: shop/templates/shop/detail.html:113
 msgid "Send"
 msgstr ""
 
-#: shop/templates/shop/detail.html:253
+#: shop/templates/shop/detail.html:257
 msgid "Sorry, this is currently unavailable."
 msgstr ""
 

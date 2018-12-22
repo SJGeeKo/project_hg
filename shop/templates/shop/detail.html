@@ -26,19 +26,23 @@
             </div>
             <div class="email-container d-none d-lg-block">
                 <h5>{% trans 'Art Description' %}</h5>
-                {% if painting.description == "" %}
-                    <p class="my-description-detail" style="color: #878787;">{% trans 'No description to show.' %}</p>
-                {% else %}
-                    {% if LANGUAGE_CODE == 'ko' %}
-                    <p id="painting-desc" class="my-description-detail">{{painting.description}}</p>
-                    <div id="painting-desc-full" class="my-description-detail d-none">
-                        {{painting.description|linebreaksbr}}
-                    </div>
+                {% if LANGUAGE_CODE == 'ko' %}
+                    {% if painting.description == "" %}
+                        <p class="my-description-detail" style="color: #878787;">입력된 작품설명이 없습니다.</p>
                     {% else %}
-                    <p id="painting-desc" class="my-description-detail">{{painting.paintingeng_set.all.0.description}}</p>
-                    <div id="painting-desc-full" class="my-description-detail d-none">
-                        {{painting.paintingeng_set.all.0.description|linebreaksbr}}
-                    </div>
+                        <p id="painting-desc" class="my-description-detail">{{painting.description}}</p>
+                        <div id="painting-desc-full" class="my-description-detail d-none">
+                            {{painting.description|linebreaksbr}}
+                        </div>
+                    {% endif %}
+                {% else %}
+                    {% if painting.paintingeng_set.all.0.description == "" %}
+                        <p class="my-description-detail" style="color: #878787;">No description to show.</p>
+                    {% else %}
+                        <p id="painting-desc" class="my-description-detail">{{painting.paintingeng_set.all.0.description}}</p>
+                        <div id="painting-desc-full" class="my-description-detail d-none">
+                            {{painting.paintingeng_set.all.0.description|linebreaksbr}}
+                        </div>
                     {% endif %}
                 {% endif %}
                 <hr style="margin-bottom: 15px !important;">
