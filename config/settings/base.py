@@ -146,7 +146,7 @@ MAILGUN_SERVER_NAME = 'hagley.co.kr'
 # Crispy Form
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LANGUAGE_CODE = 'ko'
+LANGUAGE_CODE = 'en'
 
 from django.utils.translation import ugettext_lazy as _
 LANGUAGES = [
