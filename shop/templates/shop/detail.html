@@ -4,11 +4,14 @@
 {% load crispy_forms_tags %}
 {% load i18n %}
 {% block title %}
-    {{painting.name}} by {{painting.painter.name}} | Hagley
+    {% get_current_language as LANGUAGE_CODE %}
+    {% if LANGUAGE_CODE == 'ko' %}
+        {{painting.name}} by {{painting.painter.name}} | 헤이글리
+    {% else %}
+        {{painting.paintingeng_set.all.0.name}} by {{painting.painter.paintereng_set.all.0.name}} | Hagley
+    {% endif %}
 {% endblock %}
 {% block content %}
-{% get_current_language as LANGUAGE_CODE %}
-<!-- Current language: {{ LANGUAGE_CODE }}-->
 <div class="container margin-top-20">
     <div class="row">
         <div class="col-12 col-sm-12 col-md-12 col-lg-8">

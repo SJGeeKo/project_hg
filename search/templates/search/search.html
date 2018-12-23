@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 {% load staticfiles humanize crispy_forms_tags i18n %}
 {% block title %}
-    &#8220{{query}}&#8221에 대한 검색결과 | Hagley
+{% get_current_language as LANGUAGE_CODE %}
+    {% if LANGUAGE_CODE == 'ko' %}
+    &#8220{{query}}&#8221에 대한 검색결과 | 헤이글리
+    {% else %}
+    Results for &#8220{{query}}&#8221 | Hagley
+    {% endif %}
 {% endblock %}
 {% block content %}
-{% get_current_language as LANGUAGE_CODE %}
-<!-- Current language: {{ LANGUAGE_CODE }}-->
 <div class="my-container invisible">
     <div class="container">
         <div>

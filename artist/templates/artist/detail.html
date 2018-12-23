@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 {% load humanize i18n %}
 {% block title %}
-    {{paintings.0.painter.name}} - 작가 상세정보 | Hagley
+{% get_current_language as LANGUAGE_CODE %}
+    {% if LANGUAGE_CODE == 'ko' %}
+    {{paintings.0.painter.name}} - 작가 상세정보 | 헤이글리
+    {% else %}
+    {{paintings.0.painter.paintereng_set.all.0.name}} - Artist detail | Hagley
+    {% endif %}
 {% endblock %}
 {% block content %}
-{% get_current_language as LANGUAGE_CODE %}
-<!-- Current language: {{ LANGUAGE_CODE }}-->
 {% with artist=paintings.0.painter artist_eng=paintings.0.painter.paintereng_set.all.0 %}
 <div class="my-container-2">
     <div class="container">

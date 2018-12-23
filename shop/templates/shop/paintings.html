@@ -1,18 +1,20 @@
 {% extends "base.html" %}
 {% load staticfiles humanize i18n crispy_forms_tags %}
 {% block ogtitle %}
-    헤이글리(Hagley)
+    {% trans 'Hagley' %}
 {% endblock %}
 {% block metadescription %}
-    당신의 작품을 해외에 판매해보세요. 헤이글리가 도와드립니다.
+    {% trans "Sell your artworks to global market. We'll help you." %}
 {% endblock %}
 {% block metaimage %}
     http://www.hagley.co.kr/static/img/hagley-metaimage.jpg
 {% endblock %}
 {% block title %}
-    헤이글리 - 당신의 작품을 해외에 판매해보세요.
+    {% trans 'Hagley - Sell your artworks to global market.' %}
 {% endblock %}
 {% block content %}
+{% get_current_language as LANGUAGE_CODE %}
+<!-- Current language: {{ LANGUAGE_CODE }}-->
 <div id="carousel-container" class="af-square-buttons-carousel">
     <div class="row d-none" id="carousel-item">
         <div class="col-12 col-md-12 col-lg-6 col-xl-6 flex-center">
@@ -46,8 +48,6 @@
         <div class="grid are-images-unloaded">
             <div class="grid__col-sizer"></div>
             <div class="grid__gutter-sizer"></div>
-            {% get_current_language as LANGUAGE_CODE %}
-            <!-- Current language: {{ LANGUAGE_CODE }}-->
             {% for painting in paintings.object_list %}
             <div class="grid__item">
                 <a href="{% url 'shop:paintingDetail' painting.slug %}">
