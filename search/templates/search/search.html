@@ -9,6 +9,8 @@
     {% endif %}
 {% endblock %}
 {% block content %}
+{% get_current_language as LANGUAGE_CODE %}
+<!-- Current language: {{ LANGUAGE_CODE }}-->
 <div class="my-container invisible">
     <div class="container">
         <div>

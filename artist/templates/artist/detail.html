@@ -9,6 +9,8 @@
     {% endif %}
 {% endblock %}
 {% block content %}
+{% get_current_language as LANGUAGE_CODE %}
+<!-- Current language: {{ LANGUAGE_CODE }}-->
 {% with artist=paintings.0.painter artist_eng=paintings.0.painter.paintereng_set.all.0 %}
 <div class="my-container-2">
     <div class="container">
