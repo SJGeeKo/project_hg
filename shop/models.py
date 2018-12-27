@@ -35,7 +35,7 @@ def painting_path(instance, filename):
 class Painting(models.Model):
     name = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, unique=True)
-    material = models.CharField(max_length = 250, default='Oil')
+    material = models.CharField(max_length = 250, default='캔버스에 유화')
     description = models.TextField(blank=True)
     painter = models.ForeignKey(Painter, on_delete=models.CASCADE)
     width = models.DecimalField(max_digits=4, decimal_places=1)
@@ -75,9 +75,9 @@ class Painting(models.Model):
 class PaintingEng(models.Model):
     painting = models.ForeignKey(Painting, on_delete=models.CASCADE)
     name = models.CharField(max_length=250)
-    material = models.CharField(max_length = 250, default='Oil')
+    material = models.CharField(max_length = 250, default='Oil on canvas')
     description = models.TextField(blank=True)
-    price = models.IntegerField(default=100000)
+    price = models.IntegerField(default=100)
 
 
 def paintingImg_path(instance, filename):
